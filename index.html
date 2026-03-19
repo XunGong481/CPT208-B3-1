@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Group Portfolio & Personas - XJTLU Campus Tour</title>
+    <style>
+        body {
+            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        h1 {
+            color: #000;
+            border-bottom: 2px solid #eee;
+            padding-bottom: 10px;
+            margin-top: 40px;
+        }
+        h2 {
+            color: #2c3e50;
+            margin-bottom: 5px;
+        }
+        h3 {
+            color: #8e44ad;
+            margin-top: 0;
+            font-weight: normal;
+        }
+        
+        /* 成员介绍卡片排版 */
+        .profile-card {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            align-items: flex-start;
+        }
+        .profile-text {
+            flex: 1;
+            min-width: 300px;
+            padding-right: 30px;
+        }
+        .profile-image {
+            width: 250px;
+            height: auto;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            object-fit: cover;
+        }
+
+        /* Persona 卡片排版 */
+        .persona-container {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .persona-card {
+            flex: 1;
+            min-width: 300px;
+            background: #f9f9f9;
+            padding: 25px;
+            border-radius: 12px;
+            border-top: 6px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .persona-card h4 {
+            margin-top: 0;
+            font-size: 1.3em;
+            color: #2980b9;
+        }
+        .tag-container {
+            margin-bottom: 15px;
+        }
+        .tag {
+            background: #e2f0cb;
+            color: #558b2f;
+            padding: 4px 10px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            font-weight: bold;
+            margin-right: 5px;
+            display: inline-block;
+        }
+        .quote {
+            font-style: italic;
+            color: #444;
+            background: #fff;
+            padding: 15px;
+            border-left: 4px solid #f39c12;
+            margin: 15px 0;
+            border-radius: 0 8px 8px 0;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+        .project-desc {
+            background: #f0f7fa;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid #3498db;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 小组成员介绍 -->
+    <h1>Group Members</h1>
+
+    <!-- 成员 1 -->
+    <div class="profile-card">
+        <div class="profile-text">
+            <h2>Xun Gong</h2>
+            <h3>Student ID: 2361004</h3>
+            <p><strong>Role:</strong> XR Developer & UI Designer</p>
+            <p><strong>Brief Introduction:</strong> I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "XJTLU Campus Tour" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features to create an immersive experience for new students and visitors.</p>
+        </div>
+        <!-- 请将 src 替换为你自己的照片链接或本地路径 -->
+        <img src="pic1.jpg">
+    </div>
+
+    <!-- 成员 2-->
+    <div class="profile-card">
+        <div class="profile-text">
+            <h2>Xilai Bu</h2>
+            <h3>Student ID: 2362025</h3>
+            <p><strong>Role:</strong> UX Researcher & 3D Asset Integrator</p>
+            <p><strong>Brief Introduction:</strong> I am passionate about understanding user behavior and applying technology to solve real-world problems. In this project, I am responsible for researching the needs of external visitors and ensuring that our tangible and online XR features provide a seamless, engaging campus tour experience.</p>
+        </div>
+        <!-- 请将 src 替换为组员的照片链接或本地路径 -->
+        <img src="pic2.jpg">
+    </div>
+
+
+    <!-- 基于 10-80-10 法则生成的 Personas -->
+    <h1>Project Personas</h1>
+    
+    <div class="project-desc">
+        <strong>Project Context:</strong> "XJTLU Campus Tour" Application <br>
+        <strong>Platform & Tech:</strong> Mobile, XR, Location-based, Tangible interaction.<br>
+        <em>*These personas were co-created using AI following the 10-80-10 rule based on our project brief.</em>
+    </div>
+
+    <div class="persona-container">
+        
+        <!-- Persona 1: The New Student (Onsite & Location-based Focus) -->
+        <div class="persona-card">
+            <h4>Persona 1: The Disoriented Freshman</h4>
+            <div class="tag-container">
+                <span class="tag">Target: New Student</span>
+                <span class="tag">Context: Onsite</span>
+            </div>
+            <p><strong>Name:</strong> Chen Yuxuan</p>
+            <p><strong>Age:</strong> 18 | <strong>Major:</strong> Computer Science</p>
+            
+            <div class="quote">"XJTLU is massive, and the building layouts (like SA and FB) feel like a maze. I want to point my phone's camera at a building and see AR arrows guiding me exactly to my lecture hall."</div>
+            
+            <p><strong>Goals:</strong></p>
+            <ul>
+                <li>Quickly navigate the campus onsite without getting lost or being late for classes.</li>
+                <li>Use mobile XR (AR navigation) for intuitive, real-time directional guidance based on his current location.</li>
+                <li>Interact with physical campus landmarks (Tangible) by scanning them to unlock fun facts about the university.</li>
+            </ul>
+            
+            <p><strong>Frustrations:</strong></p>
+            <ul>
+                <li>Traditional 2D paper maps or standard map apps fail to show complex multi-floor building interiors.</li>
+                <li>Feeling anxious and out of place during the first few weeks of university life.</li>
+            </ul>
+        </div>
+
+        <!-- Persona 2: The External Visitor (Online & XR Focus) -->
+        <div class="persona-card" style="border-top-color: #9b59b6;">
+            <h4>Persona 2: The Evaluating Parent</h4>
+            <div class="tag-container">
+                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Target: External Visitor</span>
+                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Context: Online / Onsite</span>
+            </div>
+            <p><strong>Name:</strong> Sarah Lin</p>
+            <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> High School Teacher (Parent of a prospective student)</p>
+            
+            <div class="quote">"We live in another province. Before committing to a visit, I want an immersive online VR tour to see if XJTLU's labs and dorms meet our expectations."</div>
+            
+            <p><strong>Goals:</strong></p>
+            <ul>
+                <li>Experience a realistic sense of the campus atmosphere and facilities remotely through an Online XR mode.</li>
+                <li>When visiting onsite, she wants a self-guided mobile AR tour that acts as a virtual guide, explaining the history and function of buildings as she walks by.</li>
+                <li>Easily find visitor amenities (parking, cafes, restrooms) using location-based services.</li>
+            </ul>
+            
+            <p><strong>Frustrations:</strong></p>
+            <ul>
+                <li>Static photos on the university website don't provide a true sense of scale or the "vibe" of the campus.</li>
+                <li>When visiting onsite without a student guide, she misses out on the context and stories behind the campus architecture.</li>
+            </ul>
+        </div>
+
+    </div>
+
+</body>
+</html>
