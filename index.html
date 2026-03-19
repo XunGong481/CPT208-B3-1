@@ -5,134 +5,208 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Group Portfolio & Personas - XJTLU Campus Tour</title>
     <style>
+        /* 基础样式 */
         body {
-            font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            max-width: 1000px;
+            background-color: #fcfcfc; /* 增加一点非常淡的背景色，让纯白卡片更突出 */
+            max-width: 1200px; /* 稍微加宽一点，以容纳4个并列的卡片 */
             margin: 0 auto;
-            padding: 20px;
+            padding: 30px 20px;
         }
         h1 {
-            color: #000;
-            border-bottom: 2px solid #eee;
+            color: #1a252f;
+            border-bottom: 3px solid #3498db; /* 标题下划线加粗并变色 */
             padding-bottom: 10px;
-            margin-top: 40px;
-        }
-        h2 {
-            color: #2c3e50;
-            margin-bottom: 5px;
-        }
-        h3 {
-            color: #8e44ad;
-            margin-top: 0;
-            font-weight: normal;
+            margin-top: 50px;
+            font-size: 2.2em;
         }
         
-        /* 成员介绍卡片排版 */
-        .profile-card {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: space-between;
-            margin-bottom: 40px;
-            align-items: flex-start;
-        }
-        .profile-text {
-            flex: 1;
-            min-width: 300px;
-            padding-right: 30px;
-        }
-        .profile-image {
-            width: 250px;
-            height: auto;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
-            object-fit: cover;
+        /* -----------------------
+           成员介绍：4列卡片网格布局 
+           ----------------------- */
+        .members-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 自适应网格，电脑端4列，手机端自动折叠 */
+            gap: 25px; /* 卡片之间的间距 */
+            margin-bottom: 50px;
         }
 
-        /* Persona 卡片排版 */
-        .persona-container {
-            display: flex;
-            gap: 20px;
-            flex-wrap: wrap;
-        }
-        .persona-card {
-            flex: 1;
-            min-width: 300px;
-            background: #f9f9f9;
-            padding: 25px;
+        .profile-card {
+            background: #ffffff;
             border-radius: 12px;
-            border-top: 6px solid #3498db;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); /* 柔和的阴影 */
+            overflow: hidden; /* 保证图片在卡片圆角内 */
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加悬停动画过渡 */
+            display: flex;
+            flex-direction: column;
         }
-        .persona-card h4 {
-            margin-top: 0;
-            font-size: 1.3em;
+
+        .profile-card:hover {
+            transform: translateY(-8px); /* 鼠标悬停时卡片上浮 */
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12); /* 鼠标悬停时阴影加深 */
+        }
+
+        .profile-image {
+            width: 100%;
+            height: 280px; /* 统一图片高度 */
+            object-fit: cover; /* 保证图片不拉伸变形 */
+            border-bottom: 4px solid #8e44ad; /* 图片底部的紫色装饰线 */
+        }
+
+        .profile-text {
+            padding: 20px;
+            flex-grow: 1; /* 让内容区自动撑开，保证卡片高度一致 */
+        }
+
+        .profile-text h2 {
+            color: #2c3e50;
+            margin: 0 0 5px 0;
+            font-size: 1.4em;
+        }
+
+        .profile-text h3 {
+            color: #8e44ad;
+            margin: 0 0 15px 0;
+            font-size: 0.95em;
+            font-weight: 600;
+        }
+
+        .profile-text p {
+            font-size: 0.9em;
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .role-tag {
+            display: inline-block;
+            background-color: #ebf5fb;
             color: #2980b9;
-        }
-        .tag-container {
+            padding: 4px 10px;
+            border-radius: 6px;
+            font-size: 0.85em;
+            font-weight: bold;
             margin-bottom: 15px;
         }
+
+        /* -----------------------
+           Persona 卡片排版优化 
+           ----------------------- */
+        .project-desc {
+            background: #f0f7fa;
+            padding: 20px;
+            border-radius: 10px;
+            margin-bottom: 30px;
+            border-left: 5px solid #3498db;
+            color: #444;
+        }
+
+        .persona-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 30px;
+        }
+
+        .persona-card {
+            background: #ffffff;
+            padding: 30px;
+            border-radius: 15px;
+            border-top: 6px solid #3498db;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        .persona-card h4 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #2980b9;
+        }
+
+        .tag-container {
+            margin-bottom: 20px;
+        }
+
         .tag {
             background: #e2f0cb;
             color: #558b2f;
-            padding: 4px 10px;
-            border-radius: 15px;
-            font-size: 0.8em;
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.85em;
             font-weight: bold;
-            margin-right: 5px;
+            margin-right: 8px;
             display: inline-block;
         }
+
         .quote {
             font-style: italic;
-            color: #444;
-            background: #fff;
-            padding: 15px;
+            color: #555;
+            background: #fdfdfd;
+            padding: 15px 20px;
             border-left: 4px solid #f39c12;
-            margin: 15px 0;
+            margin: 20px 0;
             border-radius: 0 8px 8px 0;
-            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
-        }
-        .project-desc {
-            background: #f0f7fa;
-            padding: 15px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            border-left: 4px solid #3498db;
+            box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
+            font-size: 0.95em;
         }
     </style>
 </head>
 <body>
 
-    <!-- 小组成员介绍 -->
+    <!-- 任务 1: 小组成员介绍 -->
     <h1>Group Members</h1>
 
-    <!-- 成员 1 -->
-    <div class="profile-card">
-        <div class="profile-text">
-            <h2>Xun Gong</h2>
-            <h3>Student ID: 2361004</h3>
-            <p><strong>Role:</strong> XR Developer & UI Designer</p>
-            <p><strong>Brief Introduction:</strong> I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "XJTLU Campus Tour" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features to create an immersive experience for new students and visitors.</p>
+    <!-- 成员容器开始 (使用Grid网格并列排布) -->
+    <div class="members-grid">
+        
+        <!-- 成员 1: Xun Gong -->
+        <div class="profile-card">
+            <img src="pic1.jpg" alt="Photo of Xun Gong" class="profile-image">
+            <div class="profile-text">
+                <h2>Xun Gong</h2>
+                <h3>ID: 2361004</h3>
+                <div class="role-tag">XR Developer & UI</div>
+                <p>I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "XJTLU Campus Tour" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features.</p>
+            </div>
         </div>
-        <!-- 请将 src 替换为你自己的照片链接或本地路径 -->
-        <img src="pic1.jpg">
-    </div>
 
-    <!-- 成员 2-->
-    <div class="profile-card">
-        <div class="profile-text">
-            <h2>Xilai Bu</h2>
-            <h3>Student ID: 2362025</h3>
-            <p><strong>Role:</strong> UX Researcher & 3D Asset Integrator</p>
-            <p><strong>Brief Introduction:</strong> I am passionate about understanding user behavior and applying technology to solve real-world problems. In this project, I am responsible for researching the needs of external visitors and ensuring that our tangible and online XR features provide a seamless, engaging campus tour experience.</p>
+        <!-- 成员 2: Xilai Bu -->
+        <div class="profile-card">
+            <!-- 给不同成员底部装饰线换换颜色，增加视觉丰富度 -->
+            <img src="pic2.jpg" alt="Photo of Xilai Bu" class="profile-image" style="border-bottom-color: #27ae60;">
+            <div class="profile-text">
+                <h2>Xilai Bu</h2>
+                <h3>ID: 2362025</h3>
+                <div class="role-tag">UX Researcher & 3D</div>
+                <p>I am passionate about understanding user behavior. In this project, I am responsible for researching the needs of external visitors and ensuring that our tangible and online XR features provide a seamless, engaging campus tour experience.</p>
+            </div>
         </div>
-        <!-- 请将 src 替换为组员的照片链接或本地路径 -->
-        <img src="pic2.jpg">
+
+        <!-- 成员 3: (待填写) -->
+        <div class="profile-card">
+            <img src="pic3.jpg" alt="Photo of Member 3" class="profile-image" style="border-bottom-color: #e67e22;">
+            <div class="profile-text">
+                <h2>Yaxin.Huang</h2>
+                <h3>ID: 1234567</h3>
+                <div class="role-tag">Role Title Here</div>
+                <p> </p>
+            </div>
+        </div>
+
+        <!-- 成员 4: (待填写) -->
+        <div class="profile-card">
+            <img src="pic4.jpg" alt="Photo of Member 4" class="profile-image" style="border-bottom-color: #e74c3c;">
+            <div class="profile-text">
+                <h2>Erzhe.Xu</h2>
+                <h3>ID: 7654321</h3>
+                <div class="role-tag">Role Title Here</div>
+                <p> </p>
+            </div>
+        </div>
+
     </div>
+    <!-- 成员容器结束 -->
 
 
-    <!-- 基于 10-80-10 法则生成的 Personas -->
+    <!-- 任务 2: 基于 10-80-10 法则生成的 Personas -->
     <h1>Project Personas</h1>
     
     <div class="project-desc">
@@ -143,7 +217,7 @@
 
     <div class="persona-container">
         
-        <!-- Persona 1: The New Student (Onsite & Location-based Focus) -->
+        <!-- Persona 1: The New Student -->
         <div class="persona-card">
             <h4>Persona 1: The Disoriented Freshman</h4>
             <div class="tag-container">
@@ -159,7 +233,7 @@
             <ul>
                 <li>Quickly navigate the campus onsite without getting lost or being late for classes.</li>
                 <li>Use mobile XR (AR navigation) for intuitive, real-time directional guidance based on his current location.</li>
-                <li>Interact with physical campus landmarks (Tangible) by scanning them to unlock fun facts about the university.</li>
+                <li>Interact with physical campus landmarks (Tangible) by scanning them to unlock fun facts.</li>
             </ul>
             
             <p><strong>Frustrations:</strong></p>
@@ -169,7 +243,7 @@
             </ul>
         </div>
 
-        <!-- Persona 2: The External Visitor (Online & XR Focus) -->
+        <!-- Persona 2: The External Visitor -->
         <div class="persona-card" style="border-top-color: #9b59b6;">
             <h4>Persona 2: The Evaluating Parent</h4>
             <div class="tag-container">
@@ -177,14 +251,14 @@
                 <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Context: Online / Onsite</span>
             </div>
             <p><strong>Name:</strong> Sarah Lin</p>
-            <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> High School Teacher (Parent of a prospective student)</p>
+            <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> High School Teacher</p>
             
             <div class="quote">"We live in another province. Before committing to a visit, I want an immersive online VR tour to see if XJTLU's labs and dorms meet our expectations."</div>
             
             <p><strong>Goals:</strong></p>
             <ul>
-                <li>Experience a realistic sense of the campus atmosphere and facilities remotely through an Online XR mode.</li>
-                <li>When visiting onsite, she wants a self-guided mobile AR tour that acts as a virtual guide, explaining the history and function of buildings as she walks by.</li>
+                <li>Experience a realistic sense of the campus atmosphere remotely through an Online XR mode.</li>
+                <li>When visiting onsite, use a self-guided mobile AR tour that acts as a virtual guide, explaining the history and function of buildings.</li>
                 <li>Easily find visitor amenities (parking, cafes, restrooms) using location-based services.</li>
             </ul>
             
