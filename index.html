@@ -3,81 +3,66 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Group Portfolio & Personas - XJTLU Campus Tour</title>
+    <title>Group Portfolio - WanderX</title>
     <style>
         /* 基础样式 */
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #fcfcfc; /* 增加一点非常淡的背景色，让纯白卡片更突出 */
-            max-width: 1200px; /* 稍微加宽一点，以容纳4个并列的卡片 */
+            background-color: #f8f9fa; /* 更柔和的背景色 */
+            max-width: 1200px; 
             margin: 0 auto;
             padding: 30px 20px;
         }
         h1 {
             color: #1a252f;
-            border-bottom: 3px solid #3498db; /* 标题下划线加粗并变色 */
+            border-bottom: 3px solid #3498db;
             padding-bottom: 10px;
-            margin-top: 50px;
+            margin-top: 60px; /* 增加各版块间的间距 */
             font-size: 2.2em;
+        }
+        .section-desc {
+            color: #555;
+            margin-bottom: 25px;
+            font-size: 1.05em;
         }
         
         /* -----------------------
-           成员介绍：4列卡片网格布局 
+           成员介绍
            ----------------------- */
         .members-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); /* 自适应网格，电脑端4列，手机端自动折叠 */
-            gap: 25px; /* 卡片之间的间距 */
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); 
+            gap: 25px; 
             margin-bottom: 50px;
         }
-
         .profile-card {
             background: #ffffff;
             border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06); /* 柔和的阴影 */
-            overflow: hidden; /* 保证图片在卡片圆角内 */
-            transition: transform 0.3s ease, box-shadow 0.3s ease; /* 添加悬停动画过渡 */
+            box-shadow: 0 4px 15px rgba(0,0,0,0.06); 
+            overflow: hidden; 
+            transition: transform 0.3s ease, box-shadow 0.3s ease; 
             display: flex;
             flex-direction: column;
         }
-
         .profile-card:hover {
-            transform: translateY(-8px); /* 鼠标悬停时卡片上浮 */
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12); /* 鼠标悬停时阴影加深 */
+            transform: translateY(-8px); 
+            box-shadow: 0 12px 25px rgba(0,0,0,0.12); 
         }
-
         .profile-image {
             width: 100%;
-            height: 280px; /* 统一图片高度 */
-            object-fit: cover; /* 保证图片不拉伸变形 */
-            border-bottom: 4px solid #8e44ad; /* 图片底部的紫色装饰线 */
+            height: 280px; 
+            object-fit: cover; 
+            border-bottom: 4px solid #8e44ad; 
         }
-
         .profile-text {
             padding: 20px;
-            flex-grow: 1; /* 让内容区自动撑开，保证卡片高度一致 */
+            flex-grow: 1; 
         }
-
-        .profile-text h2 {
-            color: #2c3e50;
-            margin: 0 0 5px 0;
-            font-size: 1.4em;
-        }
-
-        .profile-text h3 {
-            color: #8e44ad;
-            margin: 0 0 15px 0;
-            font-size: 0.95em;
-            font-weight: 600;
-        }
-
-        .profile-text p {
-            font-size: 0.9em;
-            color: #555;
-            margin-bottom: 10px;
-        }
+        .profile-text h2 { color: #2c3e50; margin: 0 0 5px 0; font-size: 1.4em; }
+        .profile-text h3 { color: #8e44ad; margin: 0 0 15px 0; font-size: 0.95em; font-weight: 600; }
+        .profile-text p { font-size: 0.9em; color: #555; margin-bottom: 10px; }
         .role-tag {
             display: inline-block;
             background-color: #ebf5fb;
@@ -90,7 +75,7 @@
         }
 
         /* -----------------------
-           Persona 卡片排版优化 
+           Persona 
            ----------------------- */
         .project-desc {
             background: #f0f7fa;
@@ -100,13 +85,11 @@
             border-left: 5px solid #3498db;
             color: #444;
         }
-
         .persona-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
             gap: 30px;
         }
-
         .persona-card {
             background: #ffffff;
             padding: 30px;
@@ -114,63 +97,90 @@
             border-top: 6px solid #3498db;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
         }
-
-        .persona-card h4 {
-            margin-top: 0;
-            font-size: 1.4em;
-            color: #2980b9;
-        }
-
-        .tag-container {
-            margin-bottom: 20px;
-        }
-
+        .persona-card h4 { margin-top: 0; font-size: 1.4em; color: #2980b9; }
+        .tag-container { margin-bottom: 20px; }
         .tag {
-            background: #e2f0cb;
-            color: #558b2f;
-            padding: 5px 12px;
-            border-radius: 20px;
-            font-size: 0.85em;
-            font-weight: bold;
-            margin-right: 8px;
-            display: inline-block;
+            background: #e2f0cb; color: #558b2f; padding: 5px 12px;
+            border-radius: 20px; font-size: 0.85em; font-weight: bold;
+            margin-right: 8px; display: inline-block;
+        }
+        .quote {
+            font-style: italic; color: #555; background: #fdfdfd;
+            padding: 15px 20px; border-left: 4px solid #f39c12; margin: 20px 0;
+            border-radius: 0 8px 8px 0; box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
         }
 
-        .quote {
-            font-style: italic;
-            color: #555;
-            background: #fdfdfd;
-            padding: 15px 20px;
-            border-left: 4px solid #f39c12;
-            margin: 20px 0;
-            border-radius: 0 8px 8px 0;
-            box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
-            font-size: 0.95em;
+        /* -----------------------
+           User Journey Map
+           ----------------------- */
+        .journey-map-container {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center; /* 居中图片 */
+        }
+        .journey-map-img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px;
+            border: 1px solid #eaeaea;
+        }
+
+        /* -----------------------
+           UI Design (8 Screens)
+           ----------------------- */
+        .ui-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* 手机端1-2列，电脑端自动4列 */
+            gap: 25px;
+        }
+        .ui-card {
+            background: #ffffff;
+            border-radius: 15px;
+            padding: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .ui-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+        }
+        .ui-img {
+            width: 100%;
+            /* 预设为常见的手机长宽比 9:16，保证没有图片时排版也不乱 */
+            aspect-ratio: 9 / 16; 
+            object-fit: cover; /* 保证图片充满容器且不变形 */
+            border-radius: 10px;
+            border: 1px solid #f0f0f0;
+            background-color: #f5f5f5; /* 图片未加载时的占位颜色 */
+        }
+        .ui-title {
+            margin: 15px 0 5px 0;
+            font-weight: bold;
+            color: #2c3e50;
         }
     </style>
 </head>
 <body>
 
-    <!-- 任务 1: 小组成员介绍 -->
+    <!-- 小组成员介绍 -->
     <h1>Group Members</h1>
-
-    <!-- 成员容器开始 (使用Grid网格并列排布) -->
     <div class="members-grid">
-        
-        <!-- 成员 1: Xun Gong -->
+        <!-- 成员 1 -->
         <div class="profile-card">
-            <img src="pic1.jpg" alt="Photo of Xun Gong" class="profile-image">
+            <img src="pic1.jpg" alt="Photo of Xun Gong" class="profile-image" style="border-bottom-color: #8e44ad;">
             <div class="profile-text">
                 <h2>Xun Gong</h2>
                 <h3>ID: 2361004</h3>
                 <div class="role-tag">XR Developer & UI</div>
-                <p>I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "XJTLU Campus Tour" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features.</p>
+                <p>I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "WanderX" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features.</p>
             </div>
         </div>
 
-        <!-- 成员 2: Xilai Bu -->
+        <!-- 成员 2 -->
         <div class="profile-card">
-            <!-- 给不同成员底部装饰线换换颜色，增加视觉丰富度 -->
             <img src="pic2.jpg" alt="Photo of Xilai Bu" class="profile-image" style="border-bottom-color: #27ae60;">
             <div class="profile-text">
                 <h2>Xilai Bu</h2>
@@ -180,43 +190,40 @@
             </div>
         </div>
 
-        <!-- 成员 3: Yaxin Huang -->
+        <!-- 成员 3 -->
         <div class="profile-card">
             <img src="pic3.jpg" alt="Photo of Member 3" class="profile-image" style="border-bottom-color: #e67e22;">
             <div class="profile-text">
-                <h2>Yaxin Huang</h2>
-                <h3>ID: 2360931</h3>
+                <h2>Yuchen Wang</h2>
+                <h3>ID: 2363045</h3>
                 <div class="role-tag">Interaction Designer & PM</div>
-                <p>I am an undergraduate at XJTLU focusing on user-centered design. In the "Campus Tour" project, I manage our project timeline and design the "tangible" interaction features, ensuring that scanning physical campus landmarks translates smoothly into digital XR experiences. </p>
+                <p>I focus on user-centered design. In the "WanderX" project, I manage our timeline and design the "tangible" interaction features, ensuring that scanning physical campus landmarks translates smoothly into digital XR experiences.</p>
             </div>
         </div>
 
-        <!-- 成员 4: Erzhe Xu -->
+        <!-- 成员 4 -->
         <div class="profile-card">
             <img src="pic4.jpg" alt="Photo of Member 4" class="profile-image" style="border-bottom-color: #e74c3c;">
             <div class="profile-text">
-                <h2>Erzhe Xu</h2>
-                <h3>ID: 2360814</h3>
+                <h2>Zihan Chen</h2>
+                <h3>ID: 2364112</h3>
                 <div class="role-tag">Backend & Location Data</div>
-                <p>I study Computer Science at XJTLU with a strong interest in backend systems. For this application, I am responsible for handling the location-based services, ensuring our AR navigation accurately tracks user positions onsite and efficiently delivers campus data to the frontend. </p>
+                <p>I have a strong interest in backend systems. For WanderX, I handle the location-based services, ensuring our AR navigation accurately tracks user positions onsite and efficiently delivers campus data to the frontend.</p>
             </div>
         </div>
-
     </div>
-    <!-- 成员容器结束 -->
 
 
-    <!-- 任务 2: 基于 10-80-10 法则生成的 Personas -->
+    <!-- 基于 10-80-10 法则生成的 Personas -->
     <h1>Project Personas</h1>
-    
     <div class="project-desc">
-        <strong>Project Context:</strong> "XJTLU Campus Tour" Application <br>
+        <strong>Project Context:</strong> "WanderX" Application (XJTLU Smart Campus Tour) <br>
         <strong>Platform & Tech:</strong> Mobile, XR, Location-based, Tangible interaction.<br>
+        <em>*These personas were co-created using AI following the 10-80-10 rule based on our project brief.</em>
     </div>
 
     <div class="persona-container">
-        
-        <!-- Persona 1: The New Student -->
+        <!-- Persona 1 -->
         <div class="persona-card">
             <h4>Persona 1: The Disoriented Freshman</h4>
             <div class="tag-container">
@@ -225,24 +232,15 @@
             </div>
             <p><strong>Name:</strong> Chen Yuxuan</p>
             <p><strong>Age:</strong> 18 | <strong>Major:</strong> Computer Science</p>
-            
-            <div class="quote">"XJTLU is massive, and the building layouts (like SA and FB) feel like a maze. I want to point my phone's camera at a building and see AR arrows guiding me exactly to my lecture hall."</div>
-            
+            <div class="quote">"XJTLU is massive, and the building layouts (like SA and FB) feel like a maze. I want to point my phone's camera at a building and see WanderX's AR arrows guiding me exactly to my lecture hall."</div>
             <p><strong>Goals:</strong></p>
             <ul>
-                <li>Quickly navigate the campus onsite without getting lost or being late for classes.</li>
+                <li>Quickly navigate the campus onsite without getting lost.</li>
                 <li>Use mobile XR (AR navigation) for intuitive, real-time directional guidance based on his current location.</li>
-                <li>Interact with physical campus landmarks (Tangible) by scanning them to unlock fun facts.</li>
-            </ul>
-            
-            <p><strong>Frustrations:</strong></p>
-            <ul>
-                <li>Traditional 2D paper maps or standard map apps fail to show complex multi-floor building interiors.</li>
-                <li>Feeling anxious and out of place during the first few weeks of university life.</li>
             </ul>
         </div>
 
-        <!-- Persona 2: The External Visitor -->
+        <!-- Persona 2 -->
         <div class="persona-card" style="border-top-color: #9b59b6;">
             <h4>Persona 2: The Evaluating Parent</h4>
             <div class="tag-container">
@@ -251,23 +249,72 @@
             </div>
             <p><strong>Name:</strong> Sarah Lin</p>
             <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> High School Teacher</p>
-            
-            <div class="quote">"We live in another province. Before committing to a visit, I want an immersive online VR tour to see if XJTLU's labs and dorms meet our expectations."</div>
-            
+            <div class="quote">"Before committing to a visit, I want an immersive online VR tour via WanderX to see if XJTLU's labs and dorms meet our expectations."</div>
             <p><strong>Goals:</strong></p>
             <ul>
-                <li>Experience a realistic sense of the campus atmosphere remotely through an Online XR mode.</li>
-                <li>When visiting onsite, use a self-guided mobile AR tour that acts as a virtual guide, explaining the history and function of buildings.</li>
-                <li>Easily find visitor amenities (parking, cafes, restrooms) using location-based services.</li>
-            </ul>
-            
-            <p><strong>Frustrations:</strong></p>
-            <ul>
-                <li>Static photos on the university website don't provide a true sense of scale or the "vibe" of the campus.</li>
-                <li>When visiting onsite without a student guide, she misses out on the context and stories behind the campus architecture.</li>
+                <li>Experience a realistic sense of the campus remotely through an Online XR mode.</li>
+                <li>Easily find visitor amenities (parking, cafes) using location-based services when visiting onsite.</li>
             </ul>
         </div>
+    </div>
 
+
+    <!-- 新增：User Journey Map -->
+    <h1>User Journey Map</h1>
+    <p class="section-desc">This journey map illustrates the end-to-end experience of our target persona, highlighting their pain points and how WanderX provides XR solutions throughout their campus visit.</p>
+    
+    <div class="journey-map-container">
+        <!-- 请将 src="journey-map.jpg" 替换为你们自己绘制的 Journey Map 图片文件名 -->
+        <img src="journey-map.jpg" alt="WanderX User Journey Map" class="journey-map-img" onerror="this.src='https://via.placeholder.com/1200x500?text=Please+upload+journey-map.jpg'">
+    </div>
+
+
+    <!-- 新增：8张 UI Design -->
+    <h1>UI Design</h1>
+    <p class="section-desc">The following screens showcase the core mobile interface of WanderX, featuring AR navigation, tangible interaction scanning, and location-based information.</p>
+    
+    <div class="ui-grid">
+        <!-- 界面 1 -->
+        <div class="ui-card">
+            <!-- 请将 ui1.png 替换为你们的设计图文件名 -->
+            <img src="ui1.png" alt="UI Screen 1" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+1'">
+            <div class="ui-title">Splash Screen</div>
+        </div>
+        <!-- 界面 2 -->
+        <div class="ui-card">
+            <img src="ui2.png" alt="UI Screen 2" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+2'">
+            <div class="ui-title">Home / Dashboard</div>
+        </div>
+        <!-- 界面 3 -->
+        <div class="ui-card">
+            <img src="ui3.png" alt="UI Screen 3" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+3'">
+            <div class="ui-title">2D Campus Map</div>
+        </div>
+        <!-- 界面 4 -->
+        <div class="ui-card">
+            <img src="ui4.png" alt="UI Screen 4" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+4'">
+            <div class="ui-title">Location Search</div>
+        </div>
+        <!-- 界面 5 -->
+        <div class="ui-card">
+            <img src="ui5.png" alt="UI Screen 5" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+5'">
+            <div class="ui-title">AR Camera View</div>
+        </div>
+        <!-- 界面 6 -->
+        <div class="ui-card">
+            <img src="ui6.png" alt="UI Screen 6" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+6'">
+            <div class="ui-title">AR Navigation (Wayfinding)</div>
+        </div>
+        <!-- 界面 7 -->
+        <div class="ui-card">
+            <img src="ui7.png" alt="UI Screen 7" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+7'">
+            <div class="ui-title">Scan Tangible Landmark</div>
+        </div>
+        <!-- 界面 8 -->
+        <div class="ui-card">
+            <img src="ui8.png" alt="UI Screen 8" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+8'">
+            <div class="ui-title">Building Info & History</div>
+        </div>
     </div>
 
 </body>
