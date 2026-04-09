@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="zh-CN">
 <head>
@@ -143,6 +142,7 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             text-align: center; /* 居中图片 */
+            margin-bottom: 20px;
         }
         .journey-map-img {
             max-width: 100%;
@@ -156,13 +156,9 @@
            ----------------------- */
         .ui-grid-wrapper {
             display: grid;
-            grid-template-columns: 1fr 1fr; /* 两列布局 */
+            grid-template-columns: repeat(4, 1fr); /* 四列布局 */
             gap: 30px; /* 调整间距 */
-        }
-        .ui-grid-column {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr); /* 每列内部两张图 */
-            gap: 25px;
+            margin-bottom: 50px;
         }
         .ui-card {
             background: #ffffff;
@@ -310,51 +306,45 @@
     <p class="section-desc">The following screens showcase the core mobile interface of WanderX, featuring AR navigation, tangible interaction scanning, and location-based information.</p>
 
     <div class="ui-grid-wrapper">
-        <div class="ui-grid-column">
-            <!-- 界面 1 -->
-            <div class="ui-card">
-                <!-- 请将 ui1.png 替换为你们的设计图文件名 -->
-                <img src="ui1.png" alt="UI Screen 1" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+1'">
-                <div class="ui-title">Splash Screen</div>
-            </div>
-            <!-- 界面 2 -->
-            <div class="ui-card">
-                <img src="ui2.png" alt="UI Screen 2" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+2'">
-                <div class="ui-title">Home / Dashboard</div>
-            </div>
-            <!-- 界面 3 -->
-            <div class="ui-card">
-                <img src="ui3.png" alt="UI Screen 3" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+3'">
-                <div class="ui-title">2D Campus Map</div>
-            </div>
-            <!-- 界面 4 -->
-            <div class="ui-card">
-                <img src="ui4.png" alt="UI Screen 4" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+4'">
-                <div class="ui-title">Location Search</div>
-            </div>
+        <!-- 界面 1 -->
+        <div class="ui-card">
+            <img src="ui1.png" alt="UI Screen 1" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+1'">
+            <div class="ui-title">Splash Screen</div>
         </div>
-
-        <div class="ui-grid-column">
-            <!-- 界面 5 -->
-            <div class="ui-card">
-                <img src="ui5.png" alt="UI Screen 5" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+5'">
-                <div class="ui-title">AR Camera View</div>
-            </div>
-            <!-- 界面 6 -->
-            <div class="ui-card">
-                <img src="ui6.png" alt="UI Screen 6" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+6'">
-                <div class="ui-title">AR Navigation (Wayfinding)</div>
-            </div>
-            <!-- 界面 7 -->
-            <div class="ui-card">
-                <img src="ui7.png" alt="UI Screen 7" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+7'">
-                <div class="ui-title">Scan Tangible Landmark</div>
-            </div>
-            <!-- 界面 8 -->
-            <div class="ui-card">
-                <img src="ui8.png" alt="UI Screen 8" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+8'">
-                <div class="ui-title">Building Info & History</div>
-            </div>
+        <!-- 界面 2 -->
+        <div class="ui-card">
+            <img src="ui2.png" alt="UI Screen 2" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+2'">
+            <div class="ui-title">Home / Dashboard</div>
+        </div>
+        <!-- 界面 3 -->
+        <div class="ui-card">
+            <img src="ui3.png" alt="UI Screen 3" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+3'">
+            <div class="ui-title">2D Campus Map</div>
+        </div>
+        <!-- 界面 4 -->
+        <div class="ui-card">
+            <img src="ui4.png" alt="UI Screen 4" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+4'">
+            <div class="ui-title">Location Search</div>
+        </div>
+        <!-- 界面 5 -->
+        <div class="ui-card">
+            <img src="ui5.png" alt="UI Screen 5" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+5'">
+            <div class="ui-title">AR Camera View</div>
+        </div>
+        <!-- 界面 6 -->
+        <div class="ui-card">
+            <img src="ui6.png" alt="UI Screen 6" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+6'">
+            <div class="ui-title">AR Navigation (Wayfinding)</div>
+        </div>
+        <!-- 界面 7 -->
+        <div class="ui-card">
+            <img src="ui7.png" alt="UI Screen 7" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+7'">
+            <div class="ui-title">Scan Tangible Landmark</div>
+        </div>
+        <!-- 界面 8 -->
+        <div class="ui-card">
+            <img src="ui8.png" alt="UI Screen 8" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+8'">
+            <div class="ui-title">Building Info & History</div>
         </div>
     </div>
 
