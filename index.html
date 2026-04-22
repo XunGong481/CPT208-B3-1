@@ -6,327 +6,2253 @@
     <title>Group Portfolio - WanderX</title>
     <style>
         /* 基础样式 */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
         body {
             font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
             line-height: 1.6;
             color: #333;
-            background-color: #f8f9fa; /* 更柔和的背景色 */
+            background-color: #f8f9fa;
+        }
+        .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 30px 20px;
+            padding: 0 20px;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+            color: #1a252f;
         }
         h1 {
-            color: #1a252f;
-            border-bottom: 3px solid #3498db;
-            padding-bottom: 10px;
-            margin-top: 60px; /* 增加各版块间的间距 */
-            font-size: 2.2em;
+            font-size: 2.5em;
+            margin-bottom: 20px;
         }
-        .section-desc {
-            color: #555;
-            margin-bottom: 25px;
-            font-size: 1.05em;
-        }
-
-        /* -----------------------
-           Header
-           ----------------------- */
-        .main-header {
-            text-align: center;
-            margin-bottom: 50px;
-            padding-bottom: 20px;
-            border-bottom: 1px solid #eee;
-        }
-        .main-header h1 {
-            font-size: 3em;
-            color: #2c3e50;
-            margin-bottom: 5px;
-            border-bottom: none;
-            padding-bottom: 0;
-        }
-        .main-header h2 {
-            font-size: 1.5em;
-            color: #3498db;
-            font-weight: normal;
-            margin-top: 0;
-        }
-
-        /* -----------------------
-           成员介绍
-           ----------------------- */
-        .members-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 25px;
-            margin-bottom: 50px;
-        }
-        .profile-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.06);
-            overflow: hidden;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            display: flex;
-            flex-direction: column;
-        }
-        .profile-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 12px 25px rgba(0,0,0,0.12);
-        }
-        .profile-image {
-            width: 100%;
-            height: 280px;
-            object-fit: cover;
-            border-bottom: 4px solid #8e44ad;
-        }
-        .profile-text {
-            padding: 20px;
-            flex-grow: 1;
-        }
-        .profile-text h2 { color: #2c3e50; margin: 0 0 5px 0; font-size: 1.4em; }
-        .profile-text h3 { color: #8e44ad; margin: 0 0 15px 0; font-size: 0.95em; font-weight: 600; }
-        .profile-text p { font-size: 0.9em; color: #555; margin-bottom: 10px; }
-        .role-tag {
-            display: inline-block;
-            background-color: #ebf5fb;
-            color: #2980b9;
-            padding: 4px 10px;
-            border-radius: 6px;
-            font-size: 0.85em;
-            font-weight: bold;
+        h2 {
+            font-size: 2em;
             margin-bottom: 15px;
         }
+        h3 {
+            font-size: 1.5em;
+            margin-bottom: 15px;
+        }
+        p {
+            margin-bottom: 15px;
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        .section {
+            padding: 80px 0;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+        .section-title h2 {
+            display: inline-block;
+            border-bottom: 3px solid #3498db;
+            padding-bottom: 10px;
+        }
 
-        /* -----------------------
-           Persona
-           ----------------------- */
-        .project-desc {
-            background: #f0f7fa;
+        /* 固定导航栏 */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            z-index: 1000;
+            padding: 15px 0;
+        }
+        .navbar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            padding: 0 20px;
+        }
+        .navbar-logo {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3498db;
+            text-decoration: none;
+            margin-right: 100px;
+        }
+        .navbar-menu {
+            display: flex;
+            list-style: none;
+            margin-left: 0;
+        }
+        .navbar-menu li {
+            margin-left: 10px;
+        }
+        .navbar-menu a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        .navbar-menu a:hover {
+            color: #3498db;
+        }
+        .navbar-menu a.active {
+            color: #3498db;
+            font-weight: bold;
+        }
+
+        /* Hero 区 */
+        .hero {
+            padding: 150px 0 100px;
+            text-align: center;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin-top: 70px;
+        }
+        .hero-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .hero h1 {
+            font-size: 3.5em;
+            margin-bottom: 20px;
+            color: #2c3e50;
+        }
+        .hero p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+            color: #555;
+        }
+        .team-info {
+            margin: 30px 0;
+            padding: 20px;
+            background-color: rgba(255, 255, 255, 0.8);
+            border-radius: 10px;
+            display: inline-block;
+        }
+        .cta-buttons {
+            margin-top: 30px;
+        }
+        .btn {
+            display: inline-block;
+            padding: 12px 24px;
+            margin: 0 10px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        .btn-primary {
+            background-color: #3498db;
+            color: white;
+        }
+        .btn-primary:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+        .btn-secondary {
+            background-color: #2c3e50;
+            color: white;
+        }
+        .btn-secondary:hover {
+            background-color: #1a252f;
+            transform: translateY(-2px);
+        }
+        .hero-image {
+            margin-top: 40px;
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .image-caption {
+            font-size: 0.9em;
+            color: #666;
+            margin-top: 10px;
+        }
+
+        /* 板块1：Motivation & Research */
+        .why-section {
+            margin-bottom: 40px;
+        }
+        .system-selection {
+            margin: 40px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 10px;
+        }
+        .system-selection h3 {
+            margin-bottom: 20px;
+            color: #3498db;
+        }
+        .system-selection p {
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+        .gap-analysis {
+            margin: 40px 0;
+        }
+        .gap-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .gap-card {
+            background: white;
             padding: 20px;
             border-radius: 10px;
-            margin-bottom: 30px;
-            border-left: 5px solid #3498db;
-            color: #444;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
         }
-        .persona-container {
+        .gap-card h4 {
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        .gap-pros, .gap-cons {
+            margin: 10px 0;
+        }
+        .gap-pros h5, .gap-cons h5 {
+            font-size: 1em;
+            margin-bottom: 10px;
+        }
+        .gap-pros ul, .gap-cons ul {
+            padding-left: 20px;
+        }
+        .personas {
+            margin: 40px 0;
+        }
+        .persona-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
             gap: 30px;
         }
         .persona-card {
-            background: #ffffff;
+            background: white;
             padding: 30px;
             border-radius: 15px;
-            border-top: 6px solid #3498db;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            position: relative;
+            overflow: hidden;
         }
-        .persona-card h4 { margin-top: 0; font-size: 1.4em; color: #2980b9; }
-        .tag-container { margin-bottom: 20px; }
-        .tag {
-            background: #e2f0cb; color: #558b2f; padding: 5px 12px;
-            border-radius: 20px; font-size: 0.85em; font-weight: bold;
-            margin-right: 8px; display: inline-block;
+        .persona-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 100%;
+            background: #3498db;
         }
-        .quote {
-            font-style: italic; color: #555; background: #fdfdfd;
-            padding: 15px 20px; border-left: 4px solid #f39c12; margin: 20px 0;
-            border-radius: 0 8px 8px 0; box-shadow: inset 0 0 8px rgba(0,0,0,0.03);
-        }
-
-        /* -----------------------
-           User Journey Map
-           ----------------------- */
-        .journey-map-container {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
-            text-align: center; /* 居中图片 */
+        .persona-card h4 {
+            margin-top: 0;
+            font-size: 1.4em;
+            color: #3498db;
             margin-bottom: 20px;
         }
-        .journey-map-img {
-            max-width: 100%;
-            height: auto;
-            border-radius: 8px;
-            border: 1px solid #eaeaea;
+        .persona-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+        }
+        .persona-avatar {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%;
+            background-color: #f0f0f0;
+            margin-right: 20px;
+            flex-shrink: 0;
+            object-fit: cover;
+        }
+        .persona-basic {
+            flex: 1;
+        }
+        .persona-basic p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #666;
+        }
+        .persona-section {
+            margin: 20px 0;
+        }
+        .persona-section h5 {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+        .persona-section ul {
+            padding-left: 20px;
+            margin: 10px 0;
+        }
+        .persona-section ul li {
+            margin-bottom: 5px;
+        }
+        .persona-section p {
+            line-height: 1.5;
+        }
+        
+        /* 论文与竞品分析样式 */
+        .paper-card {
+            background: white;
+            padding: 25px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            margin-bottom: 30px;
+        }
+        .paper-card h5 {
+            font-size: 1.2em;
+            margin-bottom: 15px;
+            color: #3498db;
+        }
+        .paper-card p {
+            margin-bottom: 20px;
+        }
+        .paper-table {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        .table-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            width: 100%;
+        }
+        .table-cell {
+            flex: 1;
+            min-width: 300px;
+        }
+        .table-cell h6 {
+            font-size: 1em;
+            margin-bottom: 10px;
+            color: #333;
+        }
+        .table-cell ul {
+            padding-left: 20px;
+        }
+        .table-cell ul li {
+            margin-bottom: 5px;
         }
 
-        /* -----------------------
-           UI Design (8 Screens)
-           ----------------------- */
-        .ui-grid-wrapper {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr); /* 四列布局 */
-            gap: 30px; /* 调整间距 */
-            margin-bottom: 50px;
+        /* 板块2：User Requirements */
+        .data-source {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            margin-bottom: 40px;
         }
-        .ui-card {
-            background: #ffffff;
+        .journey-map {
+            margin: 40px 0;
+        }
+        .journey-flow {
+            background: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .journey-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin-top: 20px;
+        }
+        .journey-step {
+            flex: 1;
+            min-width: 150px;
+            padding: 20px;
+            margin: 10px;
+            background: #f8f9fa;
+            border-radius: 10px;
+            text-align: center;
+        }
+        .must-have {
+            margin: 40px 0;
+        }
+        .must-have-header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+        .must-have-header h3 {
+            font-size: 2.2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .must-have-subtitle {
+            font-size: 1.1em;
+            color: #666;
+            margin-bottom: 8px;
+        }
+        .must-have-note {
+            font-size: 0.9em;
+            color: #999;
+        }
+        .must-have-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        .must-have-card {
+            background: white;
+            padding: 30px;
             border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .must-have-card:hover {
+            transform: translateY(-5px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.1);
+        }
+        .must-have-icon {
+            font-size: 3em;
+            margin-bottom: 20px;
+            color: #9b59b6;
+        }
+        .must-have-card h4 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+            line-height: 1.4;
+        }
+        .must-have-experience {
+            font-size: 0.9em;
+            color: #9b59b6;
+            font-weight: 500;
+            margin-bottom: 15px;
+        }
+        .must-have-features {
+            font-size: 0.9em;
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+        .must-have-data {
+            font-size: 1.5em;
+            font-weight: bold;
+            color: #3498db;
+            margin-top: 15px;
+        }
+        .must-have-footer {
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e8f4f8 100%);
+            border-radius: 15px;
+            padding: 30px;
+        }
+        .user-preference {
+            margin-bottom: 30px;
+        }
+        .user-preference h4 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .user-preference p {
+            margin-bottom: 8px;
+            color: #555;
+        }
+        .design-principles h4 {
+            font-size: 1.2em;
+            color: #333;
+            margin-bottom: 15px;
+        }
+        .principles-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+        .principle-tag {
+            background: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9em;
+            color: #666;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+        .evidence {
+            margin: 40px 0;
+        }
+        .evidence-gallery {
+            display: flex;
+            overflow-x: auto;
+            gap: 20px;
+            padding: 20px 0;
+        }
+        .evidence-item {
+            min-width: 200px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            overflow: hidden;
+        }
+        .evidence-img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+        }
+        .evidence-caption {
             padding: 15px;
+            font-size: 0.9em;
+            color: #666;
+        }
+
+        /* 板块3：Ideation & Alternatives */
+        .crazy-eights {
+            margin: 40px 0;
+        }
+        .crazy-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .crazy-header h3 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .crazy-description {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+        }
+        .crazy-divider {
+            height: 2px;
+            background: #f0f0f0;
+            margin-bottom: 25px;
+        }
+        .crazy-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px;
+            margin-bottom: 30px;
+        }
+        @media (max-width: 768px) {
+            .crazy-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 16px;
+            }
+        }
+        .crazy-card {
+            background: white;
+            padding: 5px;
+            border-radius: 12px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            text-align: center;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+        .crazy-card:hover {
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        .crazy-number {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.8em;
+            color: #888;
+            font-weight: 500;
+        }
+        .crazy-image {
+            margin: 15px 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .sketch-img {
+            max-width: 100%;
+            max-height: 320px;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .sketch-img:hover {
+            transform: scale(1.05);
+        }
+        
+        /* Modal for image zoom */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(0,0,0,0.9);
+        }
+        
+        .modal-content {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100%;
+        }
+        
+        .modal-img {
+            max-width: 90%;
+            max-height: 90%;
+            object-fit: contain;
+        }
+        
+        .close {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #f1f1f1;
+            font-size: 40px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        
+        .close:hover {
+            color: #bbb;
+            text-decoration: none;
+        }
+        .crazy-tag {
+            display: inline-block;
+            background: #F0EFEA;
+            color: #666;
+            padding: 6px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+            margin: 10px 0;
+        }
+        .crazy-status {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            font-size: 1em;
+        }
+        .crazy-footer {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #f0f0f0;
+        }
+        .crazy-note {
+            color: #777;
+            font-size: 0.9em;
+            margin-bottom: 15px;
+        }
+        .crazy-legend {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+        .legend-item {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            font-size: 0.8em;
+            color: #777;
+        }
+        .legend-icon {
+            font-size: 1.1em;
+        }
+        
+        /* Low-Fi Prototype Styles */
+        .low-fi {
+            margin: 40px 0;
+        }
+        .low-fi-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .low-fi-header h3 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .low-fi-subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .low-fi-timeline {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .low-fi-card {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .low-fi-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .low-fi-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-image: 
+                linear-gradient(rgba(200, 200, 200, 0.1) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(200, 200, 200, 0.1) 1px, transparent 1px);
+            background-size: 20px 20px;
+            border-radius: 15px;
+            pointer-events: none;
+            z-index: 0;
+        }
+        .card-stage {
+            width: 35px;
+            height: 35px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            font-size: 1.1em;
+            margin-bottom: 5px;
+        }
+        .card-content {
+            flex: 1;
+        }
+        .card-title {
+            font-size: 1.3em;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+        .card-image {
+            position: relative;
+            margin-bottom: 15px;
+            border-radius: 10px;
+            overflow: visible;
+        }
+        .low-fi-img {
+            max-width: 100%;
+            max-height: 490px;
+            object-fit: contain;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        .points-badge {
+            position: absolute;
+            top: -10px;
+            left: -60px;
+            background: #f1c40f;
+            color: #333;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-weight: bold;
+            font-size: 0.9em;
+            z-index: 10;
+        }
+        .info-badge {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #3498db;
+            color: white;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: bold;
+            z-index: 10;
+        }
+        .image-annotations {
+            position: relative;
+            margin-top: 10px;
+        }
+        .annotation {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 10px;
+            font-size: 0.95em;
+        }
+        .annotation-arrow {
+            width: 20px;
+            height: 20px;
+            border-left: 2px solid #e74c3c;
+            border-bottom: 2px solid #e74c3c;
+            transform: rotate(-45deg);
+        }
+        .annotation-box {
+            width: 20px;
+            height: 20px;
+            border: 2px dashed #3498db;
+            background: rgba(52, 152, 219, 0.1);
+        }
+        .annotation-highlight {
+            width: 20px;
+            height: 20px;
+            background: #f1c40f;
+            opacity: 0.6;
+        }
+        .annotation-curve {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #27ae60;
+            border-radius: 50%;
+        }
+        .annotation-circle {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #e67e22;
+            border-radius: 50%;
+        }
+        .annotation-text {
+            color: #555;
+            font-weight: 500;
+        }
+        .card-description {
+            color: #666;
+            line-height: 1.5;
+        }
+        .timeline-connector {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            font-size: 1.2em;
+            color: #999;
+            min-width: 40px;
+        }
+        .low-fi-footer {
+            background: #f8f9fa;
+            padding: 25px;
+            border-radius: 15px;
+            margin-top: 30px;
+            text-align: center;
+        }
+        .flow-description {
+            font-size: 1.1em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .version-info {
+            font-size: 0.9em;
+            color: #777;
+        }
+        .low-fi-btn {
+            display: inline-block;
+            margin-top: 25px;
+            padding: 12px 24px;
+            background: #3498db;
+            color: white;
+            text-decoration: none;
+            border-radius: 25px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        .low-fi-btn:hover {
+            background: #2980b9;
+            transform: translateY(-2px);
+        }
+        
+        .design-alternatives {
+            margin: 40px 0;
+        }
+        .design-alt-header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .design-alt-header h3 {
+            font-size: 2em;
+            color: #333;
+            margin-bottom: 10px;
+        }
+        .design-alt-subtitle {
+            color: #666;
+            font-size: 1.1em;
+        }
+        .design-alt-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .design-alt-card {
+            background: white;
+            border-radius: 15px;
+            padding: 25px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            position: relative;
+            border: 2px solid #eee;
+            transition: all 0.3s ease;
+        }
+        .design-alt-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+        }
+        .design-alt-card.selected {
+            border: 3px solid #3498db;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e8f4f8 100%);
+        }
+        .card-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background: #3498db;
+            color: white;
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 0.85em;
+            font-weight: bold;
+        }
+        .card-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+        .card-label {
+            width: 35px;
+            height: 35px;
+            background: #3498db;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin-right: 12px;
+            font-size: 1.1em;
+        }
+        .card-title {
+            font-size: 1.1em;
+            font-weight: bold;
+            color: #333;
+            flex: 1;
+        }
+        .card-content {
+            margin-bottom: 15px;
+        }
+        .card-desc {
+            font-size: 0.95em;
+            line-height: 1.6;
+            color: #555;
+        }
+        .card-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+        .tag {
+            background: #f0f0f0;
+            color: #666;
+            padding: 5px 12px;
+            border-radius: 15px;
+            font-size: 0.8em;
+        }
+        .tag.selected {
+            background: #3498db;
+            color: white;
+        }
+        .selection-reason {
+            background: linear-gradient(to bottom, #f8f9fa 0%, #e8f4f8 100%);
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 25px;
+        }
+        .selection-reason h4 {
+            text-align: center;
+            font-size: 1.5em;
+            color: #333;
+            margin-bottom: 25px;
+        }
+        .reason-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+        .reason-item {
+            display: flex;
+            align-items: flex-start;
+        }
+        .reason-icon {
+            font-size: 2em;
+            margin-right: 15px;
+        }
+        .reason-content h5 {
+            font-size: 1.1em;
+            color: #3498db;
+            margin-bottom: 8px;
+        }
+        .reason-content p {
+            font-size: 0.95em;
+            line-height: 1.5;
+            color: #555;
+        }
+        .design-alt-conclusion {
+            background: white;
+            border-radius: 10px;
+            padding: 25px;
+            border-left: 5px solid #3498db;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+        .design-alt-conclusion p {
+            font-size: 1em;
+            line-height: 1.8;
+            color: #444;
+            text-align: justify;
+        }
+        .low-fi {
+            margin: 40px 0;
+            text-align: center;
+        }
+        .low-fi-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #3498db;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .low-fi-btn:hover {
+            background-color: #2980b9;
+            transform: translateY(-2px);
+        }
+
+        /* 板块4：Technical Implementation */
+        .system-arch {
+            margin: 40px 0;
+            text-align: center;
+        }
+        .arch-img {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .high-fi {
+            margin: 40px 0;
+        }
+        .high-fi-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+        .high-fi-card {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
             text-align: center;
-            transition: transform 0.3s;
         }
-        .ui-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 10px 20px rgba(0,0,0,0.1);
-        }
-        .ui-img {
+        .high-fi-img {
             width: 100%;
-            /* 预设为常见的手机长宽比 9:16，保证没有图片时排版也不乱 */
-            aspect-ratio: 390 / 844;
-            object-fit: cover; /* 保证图片充满容器且不变形 */
-            border-radius: 10px;
-            border: 1px solid #f0f0f0;
-            background-color: #f5f5f5; /* 图片未加载时的占位颜色 */
+            border-radius: 5px;
+            margin-bottom: 15px;
         }
-        .ui-title {
-            margin: 15px 0 5px 0;
+        .live-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #27ae60;
+            color: white;
+            border-radius: 5px;
+            text-decoration: none;
             font-weight: bold;
-            color: #2c3e50;
+            font-size: 1.1em;
+            transition: all 0.3s ease;
+            margin-top: 20px;
+        }
+        .live-btn:hover {
+            background-color: #229954;
+            transform: translateY(-2px);
+        }
+        .contributions {
+            margin: 40px 0;
+        }
+        .contrib-table {
+            width: 100%;
+            border-collapse: collapse;
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .contrib-table th, .contrib-table td {
+            padding: 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        .contrib-table th {
+            background-color: #3498db;
+            color: white;
+            font-weight: bold;
+        }
+        .contrib-table tr:hover {
+            background-color: #f5f5f5;
+        }
+
+        /* 板块5：Evaluation & Reflection */
+        .usability-testing {
+            margin: 40px 0;
+        }
+        .quote-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        .quote-card {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            border-left: 5px solid #f39c12;
+        }
+        .quote-text {
+            font-style: italic;
+            margin-bottom: 15px;
+        }
+        .quote-author {
+            font-weight: bold;
+            color: #555;
+        }
+        .quote-rating {
+            color: #f39c12;
+            margin-top: 10px;
+        }
+        .iterative-refinement {
+            margin: 40px 0;
+        }
+        .refinement-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 40px;
+        }
+        .refinement-item {
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+        .before-after {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin: 20px 0;
+        }
+        .ba-item {
+            flex: 1;
+            min-width: 200px;
+        }
+        .ba-img {
+            width: 100%;
+            border-radius: 5px;
+            margin-bottom: 10px;
+        }
+        .final-reflection {
+            margin: 40px 0;
+            background: white;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+        }
+
+        /* 底部：References & AI Disclosure */
+        .footer {
+            background-color: #2c3e50;
+            color: white;
+            padding: 60px 0;
+        }
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+        }
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+        }
+        .footer-section ul {
+            list-style: none;
+        }
+        .footer-section ul li {
+            margin-bottom: 10px;
+        }
+        .footer-section ul li a {
+            color: #bdc3c7;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .footer-section ul li a:hover {
+            color: white;
+        }
+
+        /* 响应式设计 */
+        @media (max-width: 768px) {
+            .navbar-menu {
+                display: none;
+            }
+            .hero h1 {
+                font-size: 2.5em;
+            }
+            .section {
+                padding: 60px 0;
+            }
+            .journey-steps {
+                flex-direction: column;
+            }
+            .journey-step {
+                margin: 10px 0;
+            }
+        }
+
+        /* 平滑滚动 */
+        html {
+            scroll-behavior: smooth;
         }
     </style>
 </head>
 <body>
-
-    <!-- 主标题 -->
-    <header class="main-header">
-        <h1>WanderX</h1>
-        <h2>Campus Tour in XJTLU</h2>
-    </header>
-
-    <!-- 小组成员介绍 -->
-    <h1>Group Members</h1>
-    <div class="members-grid">
-        <!-- 成员 1 -->
-        <div class="profile-card">
-            <img src="pic1.jpg" alt="Photo of Xun Gong" class="profile-image" style="border-bottom-color: #8e44ad;">
-            <div class="profile-text">
-                <h2>Xun Gong</h2>
-                <h3>ID: 2361004</h3>
-                <div class="role-tag">XR Developer & UI</div>
-                <p>I am a student at XJTLU. My academic interests lie in Human-Computer Interaction and Extended Reality (XR). For our "WanderX" project, I focus on designing intuitive mobile interfaces and integrating location-based AR features.</p>
-            </div>
-        </div>
-
-        <!-- 成员 2 -->
-        <div class="profile-card">
-            <img src="pic2.jpg" alt="Photo of Xilai Bu" class="profile-image" style="border-bottom-color: #27ae60;">
-            <div class="profile-text">
-                <h2>Xilai Bu</h2>
-                <h3>ID: 2362025</h3>
-                <div class="role-tag">UX Researcher & 3D</div>
-                <p>I am passionate about understanding user behavior. In this project, I am responsible for researching the needs of external visitors and ensuring that our tangible and online XR features provide a seamless, engaging campus tour experience.</p>
-            </div>
-        </div>
-
-        <!-- 成员 3 -->
-        <div class="profile-card">
-            <img src="pic3.jpg" alt="Photo of Member 3" class="profile-image" style="border-bottom-color: #e67e22;">
-            <div class="profile-text">
-                <h2>Yaxin Huang</h2>
-                <h3>ID: 2360931</h3>
-                <div class="role-tag">Interaction Designer & PM</div>
-                <p>I focus on user-centered design. In the "WanderX" project, I manage our timeline and design the "tangible" interaction features, ensuring that scanning physical campus landmarks translates smoothly into digital XR experiences.</p>
-            </div>
-        </div>
-
-        <!-- 成员 4 -->
-        <div class="profile-card">
-            <img src="pic4.jpg" alt="Photo of Member 4" class="profile-image" style="border-bottom-color: #e74c3c;">
-            <div class="profile-text">
-                <h2>Erzhe Xu</h2>
-                <h3>ID: 2360814</h3>
-                <div class="role-tag">Backend & Location Data</div>
-                <p>I have a strong interest in backend systems. For WanderX, I handle the location-based services, ensuring our AR navigation accurately tracks user positions onsite and efficiently delivers campus data to the frontend.</p>
-            </div>
-        </div>
-    </div>
-
-
-    <!-- 基于 10-80-10 法则生成的 Personas -->
-    <h1>Project Personas</h1>
-    <div class="project-desc">
-        <strong>Project Context:</strong> "WanderX" Application (XJTLU Smart Campus Tour) <br>
-        <strong>Platform & Tech:</strong> Mobile, XR, Location-based, Tangible interaction.<br>
-    </div>
-
-    <div class="persona-container">
-        <!-- Persona 1 -->
-        <div class="persona-card">
-            <h4>Persona 1: The Disoriented Freshman</h4>
-            <div class="tag-container">
-                <span class="tag">Target: New Student</span>
-                <span class="tag">Context: Onsite</span>
-            </div>
-            <p><strong>Name:</strong> Chen Yuxuan</p>
-            <p><strong>Age:</strong> 18 | <strong>Major:</strong> Computer Science</p>
-            <div class="quote">"XJTLU is massive, and the building layouts (like SA and FB) feel like a maze. I want to point my phone's camera at a building and see WanderX's AR arrows guiding me exactly to my lecture hall."</div>
-            <p><strong>Goals:</strong></p>
-            <ul>
-                <li>Quickly navigate the campus onsite without getting lost.</li>
-                <li>Use mobile XR (AR navigation) for intuitive, real-time directional guidance based on his current location.</li>
+    <!-- 固定导航栏 -->
+    <nav class="navbar">
+        <div class="navbar-container">
+            <a href="#hero" class="navbar-logo">WanderX</a>
+            <ul class="navbar-menu">
+                <li><a href="#hero" class="nav-link">Project Overview</a></li>
+                <li><a href="#motivation" class="nav-link">Motivation & Research</a></li>
+                <li><a href="#requirements" class="nav-link">User Requirements</a></li>
+                <li><a href="#ideation" class="nav-link">Ideation & Alternatives</a></li>
+                <li><a href="#technical" class="nav-link">Technical Implementation</a></li>
+                <li><a href="#evaluation" class="nav-link">Evaluation & Reflection</a></li>
             </ul>
         </div>
+    </nav>
 
-        <!-- Persona 2 -->
-        <div class="persona-card" style="border-top-color: #9b59b6;">
-            <h4>Persona 2: The Evaluating Parent</h4>
-            <div class="tag-container">
-                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Target: External Visitor</span>
-                <span class="tag" style="background: #f3e5f5; color: #7b1fa2;">Context: Online / Onsite</span>
+    <!-- Hero 区 -->
+    <section id="hero" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>WanderX</h1>
+                <p>Turn campus exploration into a game</p>
+                <div class="team-info">
+                    <p><strong>Group ID:</strong> B3-1</p>
+                    <p><strong>Members:</strong> Xun Gong (2361004), Xilai Bu (2362025), Yaxin Huang (2360931), Erzhe Xu (2360814)</p>
+                </div>
+                <div class="cta-buttons">
+                    <a href="#" class="btn btn-primary" target="_blank">Access System</a>
+                    <a href="#" class="btn btn-secondary" target="_blank">View Poster</a>
+                </div>
+                <img src="Concept_Image.png" alt="WanderX Concept" class="hero-image">
+                <p class="image-caption">Generated by Doubao</p>
             </div>
-            <p><strong>Name:</strong> Sarah Lin</p>
-            <p><strong>Age:</strong> 45 | <strong>Occupation:</strong> High School Teacher</p>
-            <div class="quote">"Before committing to a visit, I want an immersive online VR tour via WanderX to see if XJTLU's labs and dorms meet our expectations."</div>
-            <p><strong>Goals:</strong></p>
-            <ul>
-                <li>Experience a realistic sense of the campus remotely through an Online XR mode.</li>
-                <li>Easily find visitor amenities (parking, cafes) using location-based services when visiting onsite.</li>
-            </ul>
+        </div>
+    </section>
+
+    <!-- 板块1：Motivation & Research -->
+    <section id="motivation" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Motivation & Research</h2>
+            </div>
+            
+            <div class="why-section">
+                <h3>The Why</h3>
+                <p>The title "Campus Tour" is derived from a rather typical experience: a new student moves to a campus with a map in hand but still cannot find the dorm area's food locker and has to ask several people for directions. We are convinced that no one feels more lost on campus than in this situation.</p>
+                <p>Indeed, a short 43-person survey confirms that a new visitor to the campus would find it unfamiliar; new students often lose their way around campus; and some upperclassmen even find some signs or the location of the lockers unclear. The study concluded that campus signage is often inadequate or missing and that mobile maps cannot locate specific entrances or floors. As a result, 72% of respondents rely on asking for directions, while 34% try mobile maps, and if these fail, asking remains the only option.</p>
+                <p>That is why there is a real need for a system that does not ask for directions: after all, it is much more than just a map—it is a great companion for exploring the campus. With AR, buildings "speak" about themselves; NFC check-ins transform wayfinding into a badge-collecting game; and real-time recommendations bring you closer to points of interest on campus.</p>
+                <p>Thus, each user—freshman, guest, or returning student—should never lose their way again but instead develop a sense of belonging, pride, and joy in discovering new things on campus.</p>
+            </div>
+            
+            <div class="gap-analysis">
+                <h3>Academic Papers & Competitor Analysis</h3>
+                
+                <h4>📚 Academic Papers (4)</h4>
+                
+                <div class="paper-card">
+                    <h5>1. Point Cloud Compression for Augmented Reality-Based Campus Navigation Application</h5>
+                    <p><strong>Link:</strong> <a href="https://ieeexplore.ieee.org/document/10213012" target="_blank">https://ieeexplore.ieee.org/document/10213012</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Proposes a point cloud compression method to address wireless channel bandwidth limitations; technical solution is specific</li>
+                                    <li>Implements a complete technical stack using ARcore + NavMesh + point cloud localisation</li>
+                                    <li>Published in an IEEE conference, with peer-review endorsement</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Tested only on a single campus (Al-Nahrain University, Baghdad), lacking cross-scenario validation</li>
+                                    <li>Does not discuss the impact of user age, cultural background, etc. on AR acceptance</li>
+                                    <li>Does not discuss gamification / entertaining elements; purely functional navigation</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>2. Development of a Navigation System on the University Territory Using Augmented Reality Technology</h5>
+                    <p><strong>Link:</strong> <a href="https://ieeexplore.ieee.org/document/10238548" target="_blank">https://ieeexplore.ieee.org/document/10238548</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Uses 3DUnity + AR Foundation to achieve cross-platform AR navigation</li>
+                                    <li>Emphasises "real-time synchronisation" to make users feel the virtual space, enhancing immersion</li>
+                                    <li>Addresses real pain points of a large campus (106.6 hectares, 26,000 students)</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Covers only a medium-sized campus of 20 buildings; limited scale</li>
+                                    <li>Does not mention user testing data or sample size</li>
+                                    <li>Lacks analysis of the specific needs of new students (e.g., registration office, halls of residence, etc.)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>3. Smart AR Navigation: Enhancing Campus Wayfinding with Augmented Reality</h5>
+                    <p><strong>Link:</strong> <a href="https://ieeexplore.ieee.org/document/11019523" target="_blank">https://ieeexplore.ieee.org/document/11019523</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Clearly identifies the limitations of traditional maps and signage, i.e., lack of "real-time" and "contextual awareness"</li>
+                                    <li>Highlights the value of AR on large campuses (e.g., Sri Sairam Engineering College)</li>
+                                    <li>Positions AR navigation as an extension of "gamification technology"</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Does not provide specific user testing data or evaluation results</li>
+                                    <li>Does not discuss multi-language support (for international students/visitors)</li>
+                                    <li>Does not mention accessibility design for people with disabilities (visually impaired/mobility issues)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>4. A mobile application for an ecological campus navigation system using augmented reality</h5>
+                    <p><strong>Link:</strong> <a href="https://ieeexplore.ieee.org/document/7297421" target="_blank">https://ieeexplore.ieee.org/document/7297421</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Proposes the concept of an "ecological" navigation system, focusing on sustainability</li>
+                                    <li>Mobile application lowers the barrier to use</li>
+                                    <li>Combines environmental concepts with navigation, offering a unique perspective</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Published relatively early (circa 2015); technology may be outdated</li>
+                                    <li>Does not mention integration with modern AR technologies (e.g., cloud anchors, visual positioning)</li>
+                                    <li>Lacks quantitative evaluation of user interest/engagement levels</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <h4>📱 Commercial Products (4)</h4>
+                
+                <div class="paper-card">
+                    <h5>1. Portyl (by Histoury Inc.)</h5>
+                    <p><strong>Link:</strong> <a href="https://www.businesswire.com/news/home/20250623707581/en/" target="_blank">https://www.businesswire.com/news/home/20250623707581/en/</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Uses Niantic VPS technology for centimetre-level geospatial precision locking</li>
+                                    <li>AI guide Saige supports 60+ languages, making it globally accessible</li>
+                                    <li>Hollywood-grade 3D reconstruction, excellent visual experience</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Currently only covers Rome attractions; not extended to campus scenarios</li>
+                                    <li>Requires payment (€20/package); not free to use</li>
+                                    <li>Focuses on historical sites; lacks gamification incentives (check-ins/badges)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>2. Beyond Curiosity (Ars Electronica Futurelab)</h5>
+                    <p><strong>Link:</strong> <a href="https://ars.electronica.art/futurelab/en/beyond-curiosity/" target="_blank">https://ars.electronica.art/futurelab/en/beyond-curiosity/</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Uses cutting-edge 3D Gaussian Splatting technology with a unique visual style (impressionistic)</li>
+                                    <li>Encourages user-generated content (UGC); users can upload their own scans</li>
+                                    <li>Partnered with Linz Tourism; real commercial deployment</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Focuses on city tours, not campus scenarios</li>
+                                    <li>Requires the Scaniverse App to use; relatively high barrier to entry</li>
+                                    <li>Lacks real-time navigation functionality;偏向 "exploration" rather than "wayfinding"</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>3. City of Possibilities (Singapore Tourism Board)</h5>
+                    <p><strong>Link:</strong> <a href="https://www.marketing-interactive.com/stbs-city-of-possibilities-installation-brings-iconic-local-sites-to-life-globally" target="_blank">https://www.marketing-interactive.com/stbs-city-of-possibilities-installation-brings-iconic-local-sites-to-life-globally</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Multimodal interaction design combining physical models + digital screens + 360° video</li>
+                                    <li>Uses RFID technology for physical–digital interaction</li>
+                                    <li>360° video + spatial audio provides an immersive experience</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Requires physical equipment (models, headphones); not a pure mobile application</li>
+                                    <li>Aimed at exhibitions/trade events, not everyday campus navigation</li>
+                                    <li>Lacks user-defined route planning and real-time navigation functions</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="paper-card">
+                    <h5>4. Limerick Greenway VR Tour</h5>
+                    <p><strong>Link:</strong> <a href="https://www.rte.ie/news/regional/2026/0226/1560619-limerick-greenway/" target="_blank">https://www.rte.ie/news/regional/2026/0226/1560619-limerick-greenway/</a></p>
+                    <div class="paper-table">
+                        <div class="table-row">
+                            <div class="table-cell">
+                                <h6>✅ 3 Strengths</h6>
+                                <ul>
+                                    <li>Supports multiple platforms: VR headset / mobile device / web</li>
+                                    <li>Provides accessible access for those unable to visit in person (inclusive design)</li>
+                                    <li>Covers the full 40km route; grand scale</li>
+                                </ul>
+                            </div>
+                            <div class="table-cell">
+                                <h6>❌ 3 Gaps</h6>
+                                <ul>
+                                    <li>Aimed at greenway/tourism scenarios, not university campuses</li>
+                                    <li>Purely virtual experience; lacks real-time location-based services (LBS)</li>
+                                    <li>Lacks gamification/social features (check-ins, sharing, etc.)</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="personas">
+                <h3>Personas</h3>
+                <div class="persona-grid">
+                    <!-- Persona 1：Zhang Mingxuan (Primary Persona) -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="newStudent.jpg" alt="Zhang Mingxuan" class="persona-avatar">
+                            <div class="persona-basic">
+                                <h4>Zhang Mingxuan (Primary Persona · 80% Regular Users – High-Frequency Daily User)</h4>
+                                <p><strong>Age:</strong> 18</p>
+                                <p><strong>Character:</strong> First-year undergraduate student at Xi’an Jiaotong-Liverpool University</p>
+                                <p><strong>Context:</strong> Onsite (lives on campus)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Goals</h5>
+                            <ul>
+                                <li>Quickly locate the next classroom and correct entrance within a 10-minute break</li>
+                                <li>Accurately find hidden spots like food delivery lockers and administrative offices, improving navigation efficiency</li>
+                                <li>Quickly understand building codes/names to reduce detours</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Frustrations</h5>
+                            <ul>
+                                <li>Mismatch between building names/codes and actual buildings; difficulty understanding campus signage</li>
+                                <li>Frequently entering buildings from the wrong entrance, wasting time</li>
+                                <li>Public maps experience location drift and poor accuracy on campus</li>
+                                <li>Asking for directions is inefficient; signage is available but information is scattered</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Bio (User background)</h5>
+                            <p>A first-year XJTLU student living on campus, travelling daily between teaching buildings, canteens, and administrative offices. Comfortable using mobile tools, but on campus, they rely more on <strong>signage > asking for directions > mobile maps</strong> (map usage only 30%). During the initial adjustment period, they urgently need <strong>accurate, lightweight, campus-contextual navigation</strong> to avoid being late for class.</p>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Tech Proficiency</h5>
+                            <ul>
+                                <li>Uses navigation apps 5+ times per day on average</li>
+                                <li>Skilled with Amap, WeChat, Xiaohongshu</li>
+                                <li>Campus navigation preferences: offline availability, simple steps, clearly marked buildings</li>
+                            </ul>
+                        </div>
+                    </div>
+                    
+                    <!-- Persona 2：Li Wanqing (Secondary Persona) -->
+                    <div class="persona-card">
+                        <div class="persona-header">
+                            <img src="visitor.jpg" alt="Li Wanqing" class="persona-avatar">
+                            <div class="persona-basic">
+                                <h4>Li Wanqing (Secondary Persona · 10% Edge Users – Temporary Visitors)</h4>
+                                <p><strong>Age:</strong> 28</p>
+                                <p><strong>Character:</strong> External academic conference attendee</p>
+                                <p><strong>Context:</strong> Online / Onsite (first-time visitor, one-off use 1–2 times)</p>
+                            </div>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Goals</h5>
+                            <ul>
+                                <li>Quickly locate the lecture hall/event venue within 15 minutes of entering the campus</li>
+                                <li>Obtain the optimal route with zero learning curve</li>
+                                <li>Building names should match campus signage exactly, with no positioning errors</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Frustrations</h5>
+                            <ul>
+                                <li>Completely unfamiliar with the campus as a first-time visitor</li>
+                                <li>Campus signage is unclear or placed in hidden locations</li>
+                                <li>Building names on public maps don’t match campus signage</li>
+                                <li>Unwilling to download, register, or log in; the barrier to use is too high</li>
+                            </ul>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Bio (User background)</h5>
+                            <p>An external conference attendee visiting XJTLU for the first time, with limited time and a need to be punctual. Prefers <strong>lowest friction, use-and-go, no registration</strong> navigation. Will ask for directions immediately if maps are inaccurate.</p>
+                        </div>
+                        
+                        <div class="persona-section">
+                            <h5>Tech Proficiency</h5>
+                            <ul>
+                                <li>Temporary/low-frequency user, will use the service only 1–2 times</li>
+                                <li>Willing to use mobile maps but refuses to download new apps or register</li>
+                                <li>100% likely to ask for directions if maps fail</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 板块2：User Requirements -->
+    <section id="requirements" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>User Requirements</h2>
+            </div>
+            
+            <div class="data-source">
+                <h3>Data Source Description</h3>
+                <p><strong>Collection Method:</strong> Questionnaire</p>
+                <p><strong>Sample Size:</strong> N=43</p>
+                <p><strong>Target User Composition:</strong></p>
+                <ul style="list-style-position: inside; padding-left: 40px;">
+                    <li>New students: 15 people (35%)</li>
+                    <li>Current students: 12 people (27%)</li>
+                    <li>Visitors/parents: 15 people (35%)</li>
+                    <li>Others: 1 person (3%)</li>
+                </ul>
+            </div>
+            
+            <div class="journey-map">
+                <h3>User Journey Map</h3>
+                <div class="journey-flow">
+                    <div>
+                        <h4>Freshman User Journey Map</h4>
+                        <iframe src="User Journey Map Template (Community) (2).pdf" width="100%" height="600px" style="border: 1px solid #ddd; border-radius: 10px;"></iframe>
+                    </div>
+                    <div style="margin-bottom: 30px;">
+                        <h4>Visitor User Journey Map</h4>
+                        <iframe src="Customer Journey Map and User Flow Template (Community) (2).pdf" width="100%" height="600px" style="border: 1px solid #ddd; border-radius: 10px;"></iframe>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="must-have">
+                <div class="must-have-header">
+                    <h3>🎮 3 Must-Haves</h3>
+                    <p class="must-have-subtitle">A Playful Campus Navigation System</p>
+                    <p class="must-have-note">Based on feedback from 43 campus users</p>
+                </div>
+                <div class="must-have-grid">
+                    <!-- Feature 1 -->
+                    <div class="must-have-card">
+                        <div class="must-have-icon">🧭</div>
+                        <h4>Navigate without getting lost<br>(but accidentally "get lost" in the fun)</h4>
+                        <p class="must-have-experience">Guided Discovery</p>
+                        <p class="must-have-features">AR + 2D map<br>Direction + distance text prompts</p>
+                        <p class="must-have-data">73.81%</p>
+                    </div>
+                    <!-- Feature 2 -->
+                    <div class="must-have-card">
+                        <div class="must-have-icon">🎮</div>
+                        <h4>Turn campus into an open-world game</h4>
+                        <p class="must-have-experience">Like playing a game, not doing a task</p>
+                        <p class="must-have-features">Automatic check-in<br>Points rewards<br>Redeem gifts</p>
+                        <p class="must-have-data">69.77%</p>
+                    </div>
+                    <!-- Feature 3 -->
+                    <div class="must-have-card">
+                        <div class="must-have-icon">🔮</div>
+                        <h4>AR makes buildings "speak"</h4>
+                        <p class="must-have-experience">Buildings come alive</p>
+                        <p class="must-have-features">AR building recognition<br>Popup information (name + purpose)</p>
+                        <p class="must-have-data">83.72%</p>
+                    </div>
+                </div>
+                <div class="must-have-footer">
+                    <div class="user-preference">
+                        <h4>📊 User Preference Ranking</h4>
+                        <p>83.72% of users most anticipate <strong>AR building talking</strong></p>
+                        <p>Followed by <strong>Not getting lost but fun (73.81%)</strong> and <strong>Gamification (69.77%)</strong></p>
+                    </div>
+                    <div class="design-principles">
+                        <h4>✨ Playful Design Principles</h4>
+                        <div class="principles-tags">
+                            <span class="principle-tag">⚡ Instant feedback</span>
+                            <span class="principle-tag">🎉 Sense of surprise</span>
+                            <span class="principle-tag">🧗 Low floor, high ceiling</span>
+                            <span class="principle-tag">👥 Light social interaction</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="evidence">
+                <h3>Evidence of Life</h3>
+                <div class="evidence-gallery">
+                    <!-- 证据1 -->
+                    <div class="evidence-item">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=student%20interview%20on%20campus&image_size=portrait_4_3" alt="Interview" class="evidence-img">
+                        <div class="evidence-caption"> Waiting </div>
+                    </div>
+                    <!-- 证据2 -->
+                    <div class="evidence-item">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=campus%20map%20sketching&image_size=portrait_4_3" alt="Map Sketching" class="evidence-img">
+                        <div class="evidence-caption">Waiting </div>
+                    </div>
+                    <!-- 证据3 -->
+                    <div class="evidence-item">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=user%20testing%20mobile%20app&image_size=portrait_4_3" alt="User Testing" class="evidence-img">
+                        <div class="evidence-caption">Waiting </div>
+                    </div>
+                    <!-- 证据4 -->
+                    <div class="evidence-item">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=team%20brainstorming%20session&image_size=portrait_4_3" alt="Brainstorming" class="evidence-img">
+                        <div class="evidence-caption">Waiting </div>
+                    </div>
+                    <!-- 证据5 -->
+                    <div class="evidence-item">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=prototype%20demonstration&image_size=portrait_4_3" alt="Prototype Demo" class="evidence-img">
+                        <div class="evidence-caption">Waiting </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 板块3：Ideation & Alternatives -->
+    <section id="ideation" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Ideation & Alternatives</h2>
+            </div>
+            
+            <div class="crazy-eights">
+                <div class="crazy-header">
+                    <h3>Crazy Eights</h3>
+                    <p class="crazy-description">8 minutes / 8 ideas / Hand-drawn sketches</p>
+                    <div class="crazy-divider"></div>
+                </div>
+                <div class="crazy-grid">
+                    <!-- Sketch 1 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">01</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight1.jpg" alt="Background" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">AR Navigation</div>
+                        <div class="crazy-status">⚡</div>
+                    </div>
+                    <!-- Sketch 2 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">02</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight2.jpg" alt="Home Page" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">Virtual Guide</div>
+                        <div class="crazy-status">⚡</div>
+                    </div>
+                    <!-- Sketch 3 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">03</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight3.jpg" alt="Search Location" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">Treasure Hunt</div>
+                        <div class="crazy-status">✔</div>
+                    </div>
+                    <!-- Sketch 4 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">04</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight4.jpg" alt="Destination Confirmed" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">AR Building Info</div>
+                        <div class="crazy-status">✔</div>
+                    </div>
+                    <!-- Sketch 5 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">05</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight5.jpg" alt="2D Navigation" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">Multiplayer Mode</div>
+                        <div class="crazy-status">✘</div>
+                    </div>
+                    <!-- Sketch 6 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">06</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight6.jpg" alt="AR Navigation" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">History AR</div>
+                        <div class="crazy-status">⚡</div>
+                    </div>
+                    <!-- Sketch 7 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">07</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight7.jpg" alt="Points Redemption Store" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">Personalized Routes</div>
+                        <div class="crazy-status">✔</div>
+                    </div>
+                    <!-- Sketch 8 -->
+                    <div class="crazy-card">
+                        <div class="crazy-number">08</div>
+                        <div class="crazy-image">
+                            <img src="crazyEight8.jpg" alt="AR Recognizes Buildings" class="sketch-img">
+                        </div>
+                        <div class="crazy-tag">AR Social</div>
+                        <div class="crazy-status">⚡</div>
+                    </div>
+                </div>
+                <div class="crazy-footer">
+                    <p class="crazy-note">Sketches 3, 4, and 7 have been selected for high-fidelity prototyping</p>
+                    <div class="crazy-legend">
+                        <span class="legend-item"><span class="legend-icon">✔</span> Adopted</span>
+                        <span class="legend-item"><span class="legend-icon">✘</span> Rejected</span>
+                        <span class="legend-item"><span class="legend-icon">⚡</span> Iterated</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="design-alternatives">
+                <div class="design-alt-header">
+                    <h3>Design Alternatives</h3>
+                    <p class="design-alt-subtitle">Three architectures compared</p>
+                </div>
+                
+                <div class="design-alt-grid">
+                    <div class="design-alt-card">
+                        <div class="card-header">
+                            <span class="card-label">A</span>
+                            <span class="card-title">Dual-system separated architecture</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-desc">Build two completely independent backend systems, databases and APIs for new users and visitors. The design is targeted at two types of customers since the functions are completely isolated and do not interfere with each other. However, the cost is too high to maintain.</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">High Cost</span>
+                            <span class="tag">Difficult Maintenance</span>
+                        </div>
+                    </div>
+                    
+                    <div class="design-alt-card selected">
+                        <div class="card-badge">✓ Selected plan</div>
+                        <div class="card-header">
+                            <span class="card-label">B</span>
+                            <span class="card-title">Single-system multi-module architecture</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-desc">A unified core system serves both new students and visitors simultaneously through module division. The design has unified data with common core Wanderx Campus Core System. Additionally, the cost is available and is easy to maintain. However, it is necessary isolation to ensure module isolation to avoid interference between the two types of user functions.</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag selected">Balanced</span>
+                            <span class="tag selected">Cost-Effective</span>
+                        </div>
+                    </div>
+                    
+                    <div class="design-alt-card">
+                        <div class="card-header">
+                            <span class="card-label">C</span>
+                            <span class="card-title">Pure backend-free static architecture</span>
+                        </div>
+                        <div class="card-content">
+                            <p class="card-desc">Completely relying on third-party services, without building a self-owned backend. The design is easy to develop and unnecessary to maintain with servers. The front end directly calls the map API with none user database or real-time positioning. Hence, the functions are strictly limited and cannot meet users core needs.</p>
+                        </div>
+                        <div class="card-tags">
+                            <span class="tag">Limited Functions</span>
+                            <span class="tag">No Real-time Data</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="selection-reason">
+                    <h4>Why choose plan B?</h4>
+                    <div class="reason-grid">
+                        <div class="reason-item">
+                            <div class="reason-icon">🎯</div>
+                            <div class="reason-content">
+                                <h5>User-Centric</h5>
+                                <p>Since there are two personas, the system can provide different modules for different users, such as AR navigation and offline availability.</p>
+                            </div>
+                        </div>
+                        <div class="reason-item">
+                            <div class="reason-icon">💰</div>
+                            <div class="reason-content">
+                                <h5>Cost-Effective</h5>
+                                <p>As a student project, the system ensures the complete functionality and controls the costs in the reasonable range.</p>
+                            </div>
+                        </div>
+                        <div class="reason-item">
+                            <div class="reason-icon">🏗️</div>
+                            <div class="reason-content">
+                                <h5>Clear Architecture</h5>
+                                <p>The system applies the unified database and the data is synchronized in real time, which ensures data consistency and supports users requirements immediately. Additionally, it provides a unified web entry to reduce usage barriers.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="design-alt-conclusion">
+                    <p>From this perspective, the best tradeoff between functional completeness, maintenance costs, and user experience is found in the single-system, multi-module approach.</p>
+                    <p>While it eliminates the large expense of a two-system approach, it simultaneously mitigates the shortcomings of a backend-less solution.
+                       A clear separation between modules, unified by a single database, allows us to continue serving incoming students and visitors with limited resources.</p>
+                    <p>Thus, the single-system multi-module approach best captures the design ethos of the project—"practical, usable, and evolvable."</p>
+                </div>
+            </div>
+            
+            <div class="low-fi">
+                <div class="low-fi-header">
+                    <h3>🎨 Low-Fidelity Prototype</h3>
+                    <p class="low-fi-subtitle">Three core user journey scenarios</p>
+                </div>
+                
+                <div class="low-fi-timeline">
+                    <!-- Scenario 1: Navigation Interface -->
+                    <div class="low-fi-card">
+                        <div class="card-stage">①</div>
+                        <div class="card-content">
+                            <div class="card-title" style="text-align: center;">Navigation Interface</div>
+                            <div class="card-image">
+                                    <img src="figmaHalf1.png" alt="Navigation Interface" class="low-fi-img">
+                                <div class="image-annotations">
+                                    <div class="annotation">
+                                        <span class="annotation-arrow"></span>
+                                        <span class="annotation-text">📍 Real-time distance</span>
+                                    </div>
+                                    <div class="annotation">
+                                        <span class="annotation-arrow"></span>
+                                        <span class="annotation-text">📱 AR switch button</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                Users can seamlessly switch between map list and AR view, with top search supporting quick locations (Ren'ai Road, CB, SB, etc.)
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario 2: Building Introduction -->
+                    <div class="low-fi-card">
+                        <div class="card-stage">②</div>
+                        <div class="card-content">
+                            <div class="card-title" style="text-align: center;">Building Introduction</div>
+                            <div class="card-image">
+                                <img src="figmaHalf3.png" alt="Building Introduction" class="low-fi-img">
+                                <div class="image-annotations">
+                                    <div class="annotation">
+                                        <span class="annotation-curve"></span>
+                                        <span class="annotation-text">📝 Detailed description</span>
+                                    </div>
+                                    <div class="annotation">
+                                        <span class="annotation-circle"></span>
+                                        <span class="annotation-text">⚡ Core decision point</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                AR scan building to pop up details card, users can read introduction and directly "Go Here" to start navigation
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Scenario 3: Check-in & Points -->
+                    <div class="low-fi-card">
+                        <div class="card-stage">③</div>
+                        <div class="card-content">
+                            <div class="card-title" style="text-align: center;">Check-in & Points</div>
+                            <div class="card-image">
+                                <img src="figmaHalf2.png" alt="Check-in & Points" class="low-fi-img">
+                                <div class="image-annotations">
+                                    <div class="annotation">
+                                        <span class="annotation-box"></span>
+                                        <span class="annotation-text">🗺️ Explored locations</span>
+                                    </div>
+                                    <div class="annotation">
+                                        <span class="annotation-highlight"></span>
+                                        <span class="annotation-text">🛒 Redeem items</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="card-description">
+                                Automatically earn points when arriving at new locations, with the right-side store sorted by price
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="low-fi-footer">
+                    <div class="flow-description">
+                        🔗 Flow: Search location → AR navigation → Check-in → Earn points → Redeem
+                    </div>
+                    <div class="version-info">
+                        📐 Figma Low-Fi Prototype | Version 2026.04 | Key flow: Search→Navigate→Check-in→Redeem
+                    </div>
+                </div>
+                
+                <a href="#" class="low-fi-btn" target="_blank">🔗 Open Figma Prototype</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 板块4：Technical Implementation -->
+    <section id="technical" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Technical Implementation</h2>
+            </div>
+            
+            <div class="system-arch">
+                <h3>System Working Principle</h3>
+                <img src="System Working Principle.png" alt="System Working Principle" class="arch-img">
+            </div>
+            
+            <div class="high-fi">
+                <h3>High-Fi Prototype</h3>
+                <div class="high-fi-grid">
+                    <!-- 截图1 -->
+                    <div class="high-fi-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20home%20screen&image_size=portrait_16_9" alt="Home Screen" class="high-fi-img">
+                        <p>Waiting</p>
+                    </div>
+                    <!-- 截图2 -->
+                    <div class="high-fi-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20AR%20view&image_size=portrait_16_9" alt="AR View" class="high-fi-img">
+                        <p>Waiting</p>
+                    </div>
+                    <!-- 截图3 -->
+                    <div class="high-fi-card">
+                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20map%20view&image_size=portrait_16_9" alt="Map View" class="high-fi-img">
+                        <p>Waiting</p>
+                    </div>
+                </div>
+                <a href="#" class="live-btn" target="_blank">🔗 Access System (Live URL)</a>
+            </div>
+            
+            <div class="contributions">
+                <h3>Individual Contributions</h3>
+                <table class="contrib-table">
+                    <tr>
+                        <th>Member</th>
+                        <th>Code</th>
+                        <th>UI Design</th>
+                        <th>Content</th>
+                        <th>Testing</th>
+                    </tr>
+                    <tr>
+                        <td>Xun Gong</td>
+                        <td>◉ Frontend </td>
+                        <td>✅ Figma and Crazy Eights</td>
+                        <td>✅ Poster View ◉ Questionnaire Advice + Portfolio</td>
+                        <td>◉ Assisted Questionnaire Collection</td>
+                    </tr>
+                    <tr>
+                        <td>Xilai Bu</td>
+                        <td> </td>
+                        <td>◉ UI Advice </td>
+                        <td>✅ Questionnaire + Portfolio ◉ Poster advice</td>
+                        <td>✅ Questionnaire Collection</td>
+                    </tr>
+                    <tr>
+                        <td>Yaxin Huang</td>
+                        <td>✅ System</td>
+                        <td> </td>
+                        <td>✅ User Journey Map + System Design and text</td>
+                        <td>◉ Assisted Questionnaire Collection</td>
+                    </tr>
+                    <tr>
+                        <td>Erzhe Xu</td>
+                        <td> </td>
+                        <td> </td>
+                        <td>✅ Poster text + Questionnaire Design</td>
+                        <td>◉ Assisted Questionnaire Collection </td>
+                    </tr>
+                </table>
+                <p><strong>Legend:</strong> ✅ Primary Responsibility &nbsp;&nbsp; ◉ Assisted &nbsp;&nbsp; Blank = Not Involved</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 板块5：Evaluation & Reflection -->
+    <section id="evaluation" class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Evaluation & Reflection</h2>
+            </div>
+            
+            <div class="usability-testing">
+                <h3>Usability Testing</h3>
+                <div class="quote-container">
+                    <!-- 引用1 -->
+                    <div class="quote-card">
+                        <p class="quote-text">"Waiting"</p>
+                        <p class="quote-author">Waiting</p>
+                        <p class="quote-rating">Waiting</p>
+                    </div>
+                    <!-- 引用2 -->
+                    <div class="quote-card">
+                        <p class="quote-text">"Waiting"</p>
+                        <p class="quote-author">Waiting</p>
+                        <p class="quote-rating">Waiting</p>
+                    </div>
+                    <!-- 引用3 -->
+                    <div class="quote-card">
+                        <p class="quote-text">"Waiting"</p>
+                        <p class="quote-author">Waiting</p>
+                        <p class="quote-rating">Waiting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="iterative-refinement">
+                <h3>Iterative Refinement</h3>
+                <div class="refinement-grid">
+                    <!-- 对比1 -->
+                    <div class="refinement-item">
+                        <h4>Navigation Interface Improvement</h4>
+                        <div class="before-after">
+                            <div class="ba-item">
+                                <h5>Before</h5>
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=old%20navigation%20interface%20with%20cluttered%20design&image_size=portrait_16_9" alt="Before" class="ba-img">
+                            </div>
+                            <div class="ba-item">
+                                <h5>After</h5>
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=new%20navigation%20interface%20with%20clean%20design&image_size=portrait_16_9" alt="After" class="ba-img">
+                            </div>
+                        </div>
+                        <p><strong>User Feedback:</strong> Waiting</p>
+                        <p><strong>Improvement Description:</strong> Waiting</p>
+                    </div>
+                    <!-- 对比2 -->
+                    <div class="refinement-item">
+                        <h4>AR Positioning Accuracy Improvement</h4>
+                        <div class="before-after">
+                            <div class="ba-item">
+                                <h5>Before</h5>
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=old%20AR%20navigation%20with%20inaccurate%20positioning&image_size=portrait_16_9" alt="Before" class="ba-img">
+                            </div>
+                            <div class="ba-item">
+                                <h5>After</h5>
+                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=new%20AR%20navigation%20with%20accurate%20positioning&image_size=portrait_16_9" alt="After" class="ba-img">
+                            </div>
+                        </div>
+                        <p><strong>User Feedback:</strong> "Waiting"</p>
+                        <p><strong>Improvement Description:</strong> Waiting</p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="final-reflection">
+                <h3>Final Reflection</h3>
+                <p><strong>Social/Ethical Impact:</strong> The WanderX project emphasizes accessibility and inclusivity, ensuring all users can equally access campus navigation services. We considered the needs of different user groups, including new students, visitors, and users with special needs. At the same time, we value user privacy, ensuring the secure use of location data without excessive collection or misuse of user information.</p>
+                <p><strong>AI Usage:</strong> We used various AI tools to assist with project development, including image generation tools for creating concept maps, natural language processing tools for analyzing user feedback, and machine learning models for optimizing AR positioning algorithms. We ensured all AI-generated content was manually verified, and we followed relevant ethical guidelines when using AI tools.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- 底部：References & AI Disclosure -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>References</h3>
+                    <ul>
+                        <li>Point Cloud Compression for Augmented Reality-Based Campus Navigation Application. (2023). IEEE. Retrieved from <a href="https://ieeexplore.ieee.org/document/10213012" target="_blank">https://ieeexplore.ieee.org/document/10213012</a></li>
+                        <li>Development of a Navigation System on the University Territory Using Augmented Reality Technology. (2023). IEEE. Retrieved from <a href="https://ieeexplore.ieee.org/document/10238548" target="_blank">https://ieeexplore.ieee.org/document/10238548</a></li>
+                        <li>Smart AR Navigation: Enhancing Campus Wayfinding with Augmented Reality. (2024). IEEE. Retrieved from <a href="https://ieeexplore.ieee.org/document/11019523" target="_blank">https://ieeexplore.ieee.org/document/11019523</a></li>
+                        <li>A mobile application for an ecological campus navigation system using augmented reality. (2015). IEEE. Retrieved from <a href="https://ieeexplore.ieee.org/document/7297421" target="_blank">https://ieeexplore.ieee.org/document/7297421</a></li>
+                        <li>Histoury Inc. (2025). Portyl. Retrieved from <a href="https://www.businesswire.com/news/home/20250623707581/en/" target="_blank">https://www.businesswire.com/news/home/20250623707581/en/</a></li>
+                        <li>Ars Electronica Futurelab. Beyond Curiosity. Retrieved from <a href="https://ars.electronica.art/futurelab/en/beyond-curiosity/" target="_blank">https://ars.electronica.art/futurelab/en/beyond-curiosity/</a></li>
+                        <li>Singapore Tourism Board. City of Possibilities. Retrieved from <a href="https://www.marketing-interactive.com/stbs-city-of-possibilities-installation-brings-iconic-local-sites-to-life-globally" target="_blank">https://www.marketing-interactive.com/stbs-city-of-possibilities-installation-brings-iconic-local-sites-to-life-globally</a></li>
+                        <li>RTE. (2026). Limerick Greenway VR Tour. Retrieved from <a href="https://www.rte.ie/news/regional/2026/0226/1560619-limerick-greenway/" target="_blank">https://www.rte.ie/news/regional/2026/0226/1560619-limerick-greenway/</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>AI Disclosure</h3>
+                    <ul>
+                        <li><strong>Tool:</strong>Doubao Seedream</li>
+                        <li><strong>Version:</strong> 4.5</li>
+                        <li><strong>Access Date:</strong> 2026-04-19</li>
+                        <li><strong>URL:</strong> https://www.doubao.com</li>
+                        <li><strong>Purpose:</strong> Generate concept image</li>
+                    </ul>
+                    <ul>
+                        <li><strong>Tool:</strong> image_generation</li>
+                        <li><strong>Version:</strong> Gemini 3 Flash Image</li>
+                        <li><strong>Access Date:</strong> 2026-04-14</li>
+                        <li><strong>URL:</strong> https://gemini.google.com</li>
+                        <li><strong>Purpose:</strong>User profile image generation</li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h3>Contact</h3>
+                    <p>Group ID: B3-1</p>
+                    <p>University: Xi'an Jiaotong-Liverpool University</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 导航链接和目标 section
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section');
+
+        // 滚动事件监听
+        window.addEventListener('scroll', function() {
+            // 高亮当前章节
+            let currentSection = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    currentSection = section.getAttribute('id');
+                }
+            });
+
+            navLinks.forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + currentSection) {
+                    link.classList.add('active');
+                }
+            });
+        });
+
+        // 平滑滚动
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    targetElement.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+        
+        // 图片点击放大功能
+        document.addEventListener('DOMContentLoaded', function() {
+            var modal = document.getElementById("imageModal");
+            var modalImg = document.getElementById("modalImg");
+            var sketchImgs = document.getElementsByClassName("sketch-img");
+            var lowFiImgs = document.getElementsByClassName("low-fi-img");
+            var span = document.getElementsByClassName("close")[0];
+            
+            // 添加点击事件到所有草图图片
+            for (var i = 0; i < sketchImgs.length; i++) {
+                sketchImgs[i].onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+            }
+            
+            // 添加点击事件到所有low-fi图片
+            for (var i = 0; i < lowFiImgs.length; i++) {
+                lowFiImgs[i].onclick = function() {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                }
+            }
+            
+            // 关闭模态框
+            span.onclick = function() {
+                modal.style.display = "none";
+            }
+            
+            // 点击模态框外部关闭
+            window.onclick = function(event) {
+                if (event.target == modal) {
+                    modal.style.display = "none";
+                }
+            }
+        });
+    </script>
+    
+    <!-- Image Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+            <img class="modal-img" id="modalImg" src="">
         </div>
     </div>
-
-
-    <!-- 新增：User Journey Map -->
-    <h1>User Journey Map</h1>
-    <p class="section-desc">This journey map illustrates the end-to-end experience of our target persona, highlighting their pain points and how WanderX provides XR solutions throughout their campus visit.</p>
-
-    <div class="journey-map-container">
-        <img src="journey-map1.png" alt="WanderX User Journey Map" class="journey-map-img" onerror="this.src='https://via.placeholder.com/1200x500?text=Please+upload+journey-map.jpg'">
-    </div>  
-     <div class="journey-map-container">
-        <img src="journey-map2.png" alt="WanderX User Journey Map" class="journey-map-img" onerror="this.src='https://via.placeholder.com/1200x500?text=Please+upload+journey-map.jpg'">
-    </div>
-
-
-    <!-- 4张 UI Design -->
-    <h1>UI Design</h1>
-    <p class="section-desc">The following screens showcase the core mobile interface of WanderX, featuring AR navigation, tangible interaction scanning, and location-based information.</p>
-
-    <div class="ui-grid-wrapper">
-        <!-- 界面 1 -->
-        <div class="ui-card">
-            <img src="ui1.png" alt="UI Screen 1" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+1'">
-            <div class="ui-title">Splash Screen</div>
-        </div>
-        <!-- 界面 2 -->
-        <div class="ui-card">
-            <img src="ui2.png" alt="UI Screen 2" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+2'">
-            <div class="ui-title">Home / Dashboard</div>
-        </div>
-        <!-- 界面 3 -->
-        <div class="ui-card">
-            <img src="ui3.png" alt="UI Screen 3" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+3'">
-            <div class="ui-title">2D Campus Map</div>
-        </div>
-        <!-- 界面 4 -->
-        <div class="ui-card">
-            <img src="ui4.png" alt="UI Screen 4" class="ui-img" onerror="this.src='https://via.placeholder.com/400x711?text=UI+Screen+4'">
-            <div class="ui-title">Location Search</div>
-        </div>
-    </div>
-
 </body>
 </html>
