@@ -176,6 +176,29 @@
         .why-section {
             margin-bottom: 40px;
         }
+        .why-section h3,
+        .motivation-card-header h4,
+        .gap-analysis h3,
+        .gap-analysis h4,
+        .paper-card h5,
+        .paper-card p:first-of-type,
+        .data-source h3,
+        .data-source p,
+        .data-source ul,
+        .journey-map h3,
+        .journey-map h4,
+        .evidence h3,
+        .contributions h3,
+        .contributions p,
+        .usability-testing h3,
+        .iterative-refinement h3,
+        .personas h3,
+        .high-fi h3,
+        .crazy-footer .crazy-note,
+        .crazy-footer .crazy-legend,
+        .live-btn-container {
+            text-align: center;
+        }
         .system-selection {
             margin: 40px 0;
             padding: 20px;
@@ -535,6 +558,13 @@
             color: #666;
             font-size: 1.1em;
             margin-bottom: 15px;
+            text-align: center;
+        }
+        .section-description {
+            color: #666;
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            text-align: center;
         }
         .crazy-divider {
             height: 2px;
@@ -1287,6 +1317,8 @@
             
             <div class="why-section">
                 <h3>The Why</h3>
+                <p class="section-description">Understanding the problem space through user research and competitive analysis</p>
+                <div class="section-divider"></div>
                 <p>The title "Campus Tour" is derived from a rather typical experience: a new student moves to a campus with a map in hand but still cannot find the dorm area's food locker and has to ask several people for directions. We are convinced that no one feels more lost on campus than in this situation.</p>
                 <p>Indeed, a short 43-person survey confirms that a new visitor to the campus would find it unfamiliar; new students often lose their way around campus; and some upperclassmen even find some signs or the location of the lockers unclear. The study concluded that campus signage is often inadequate or missing and that mobile maps cannot locate specific entrances or floors. As a result, 72% of respondents rely on asking for directions, while 34% try mobile maps, and if these fail, asking remains the only option.</p>
                 <p>That is why there is a real need for a system that does not ask for directions: after all, it is much more than just a map—it is a great companion for exploring the campus. With AR, buildings "speak" about themselves; NFC check-ins transform wayfinding into a badge-collecting game; and real-time recommendations bring you closer to points of interest on campus.</p>
@@ -1295,6 +1327,8 @@
             
             <div class="gap-analysis">
                 <h3>Academic Papers & Competitor Analysis</h3>
+                <p class="section-description">Research-driven insights from academic literature and existing solutions</p>
+                <div class="section-divider"></div>
                 
                 <h4>📚 Academic Papers (4)</h4>
                 
@@ -1503,6 +1537,8 @@
             
             <div class="personas">
                 <h3>Personas</h3>
+                <p class="section-description">User-centered design based on real campus needs and behaviors</p>
+                <div class="section-divider"></div>
                 <div class="persona-grid">
                     <!-- Persona 1：Zhang Mingxuan (Primary Persona) -->
                     <div class="persona-card">
@@ -1609,6 +1645,8 @@
             
             <div class="data-source">
                 <h3>Data Source Description</h3>
+                <p class="section-description">Quantitative research methodology and participant demographics</p>
+                <div class="section-divider"></div>
                 <p><strong>Collection Method:</strong> Questionnaire</p>
                 <p><strong>Sample Size:</strong> N=43</p>
                 <p><strong>Target User Composition:</strong></p>
@@ -1622,6 +1660,8 @@
             
             <div class="journey-map">
                 <h3>User Journey Map</h3>
+                <p class="section-description">Visualizing the complete user experience from start to finish</p>
+                <div class="section-divider"></div>
                 <div class="journey-flow">
                     <div>
                         <h4>Freshman User Journey Map</h4>
@@ -1638,7 +1678,6 @@
                 <div class="must-have-header">
                     <h3> 3 Must-Haves</h3>
                     <p class="must-have-subtitle">A Playful Campus Navigation System</p>
-                    <p class="must-have-note">Based on feedback from 43 campus users</p>
                 </div>
                 <div class="must-have-grid">
                     <!-- Feature 1 -->
@@ -1686,6 +1725,8 @@
             
             <div class="evidence">
                 <h3>Evidence of Life</h3>
+                <p class="section-description">Real user interactions and authentic research moments</p>
+                <div class="section-divider"></div>
                 <div class="evidence-gallery">
                     <!-- 证据1 -->
                     <div class="evidence-item">
@@ -2220,11 +2261,15 @@
             
             <div class="system-arch">
                 <h3>System Working Principle</h3>
+                <p class="section-description">Technical architecture and implementation strategy</p>
+                <div class="section-divider"></div>
                 <img src="System Working Principle.png" alt="System Working Principle" class="arch-img">
             </div>
             
             <div class="high-fi">
                 <h3>High-Fi Prototype</h3>
+                <p class="section-description">Polished visual design with AR-enhanced campus navigation experience</p>
+                <div class="section-divider"></div>
                 <div class="high-fi-grid">
                     <!-- 截图1 -->
                     <div class="high-fi-card">
@@ -2242,11 +2287,15 @@
                         <p>AR Navigation</p>
                     </div>
                 </div>
-                <a href="https://wanderx-map.vercel.app/" class="live-btn" target="_blank">🔗 Access System (Live URL)</a>
+                <div class="live-btn-container">
+                    <a href="https://wanderx-map.vercel.app/" class="live-btn" target="_blank"> Access System (Live URL)</a>
+                </div>
             </div>
             
             <div class="contributions">
                 <h3>Individual Contributions</h3>
+                <p class="section-description">Team collaboration and distributed responsibilities</p>
+                <div class="section-divider"></div>
                 <table class="contrib-table">
                     <tr>
                         <th>Member</th>
@@ -2298,6 +2347,8 @@
             
             <div class="usability-testing">
                 <h3>Usability Testing</h3>
+                <p class="section-description">Real user feedback and iterative improvement</p>
+                <div class="section-divider"></div>
                 <div class="quote-container">
                     <!-- 引用1 -->
                     <div class="quote-card">
@@ -2334,6 +2385,8 @@
             
             <div class="iterative-refinement">
                 <h3>Iterative Refinement</h3>
+                <p class="section-description">Continuous improvement based on user testing insights</p>
+                <div class="section-divider"></div>
                 <div class="refinement-grid">
                     <!-- 对比1：Navigation Interface Information Hierarchy Optimization -->
                     <div class="refinement-item">
