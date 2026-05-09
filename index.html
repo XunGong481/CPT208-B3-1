@@ -482,7 +482,8 @@
             padding: 20px 0;
         }
         .evidence-item {
-            min-width: 200px;
+            min-width: 300px;
+            max-width: 350px;
             background: white;
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0,0,0,0.05);
@@ -491,8 +492,8 @@
         }
         .evidence-img {
             width: 100%;
-            height: 150px;
-            object-fit: cover;
+            height: auto;
+            object-fit: contain;
         }
         .evidence-caption {
             padding: 15px;
@@ -1123,9 +1124,11 @@
             margin: 40px 0;
         }
         .quote-container {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            display: flex;
             gap: 30px;
+            overflow-x: auto;
+            padding: 20px 0;
+            scroll-behavior: smooth;
         }
         .quote-card {
             background: white;
@@ -1133,6 +1136,8 @@
             border-radius: 15px;
             box-shadow: 0 4px 20px rgba(0,0,0,0.05);
             border-left: 5px solid #f39c12;
+            width: 300px;
+            flex-shrink: 0;
         }
         .quote-text {
             font-style: italic;
@@ -1502,9 +1507,9 @@
                     <!-- Persona 1：Zhang Mingxuan (Primary Persona) -->
                     <div class="persona-card">
                         <div class="persona-header">
-                            <img src="newStudent.jpg" alt="Zhang Mingxuan" class="persona-avatar">
+                            <img src="newStudent.jpg" alt="Mingxuan Zhang"  class="persona-avatar">
                             <div class="persona-basic">
-                                <h4>Zhang Mingxuan (Primary Persona · 80% Regular Users – High-Frequency Daily User)</h4>
+                                <h4>Mingxuan Zhang (Primary Persona · 80% Regular Users – High-Frequency Daily User)</h4>
                                 <p><strong>Age:</strong> 18</p>
                                 <p><strong>Character:</strong> First-year undergraduate student at Xi’an Jiaotong-Liverpool University</p>
                                 <p><strong>Context:</strong> Onsite (lives on campus)</p>
@@ -1548,9 +1553,9 @@
                     <!-- Persona 2：Li Wanqing (Secondary Persona) -->
                     <div class="persona-card">
                         <div class="persona-header">
-                            <img src="visitor.jpg" alt="Li Wanqing" class="persona-avatar">
+                            <img src="visitor.jpg" alt="Wanqing Li " class="persona-avatar">
                             <div class="persona-basic">
-                                <h4>Li Wanqing (Secondary Persona · 10% Edge Users – Temporary Visitors)</h4>
+                                <h4>Wanqing Li (Secondary Persona · 10% Edge Users – Temporary Visitors)</h4>
                                 <p><strong>Age:</strong> 28</p>
                                 <p><strong>Character:</strong> External academic conference attendee</p>
                                 <p><strong>Context:</strong> Online / Onsite (first-time visitor, one-off use 1–2 times)</p>
@@ -1684,28 +1689,28 @@
                 <div class="evidence-gallery">
                     <!-- 证据1 -->
                     <div class="evidence-item">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=student%20interview%20on%20campus&image_size=portrait_4_3" alt="Interview" class="evidence-img">
-                        <div class="evidence-caption"> Waiting </div>
+                        <img src="Evidence of Life/Life1.jpg" alt="Interview 1" class="evidence-img">
+                        <div class="evidence-caption">Capturing a natural moment during peer interview, sharing thoughts with ease and sincerity.</div>
                     </div>
                     <!-- 证据2 -->
                     <div class="evidence-item">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=campus%20map%20sketching&image_size=portrait_4_3" alt="Map Sketching" class="evidence-img">
-                        <div class="evidence-caption">Waiting </div>
+                        <img src="Evidence of Life/Life2.jpg" alt="Interview 2" class="evidence-img">
+                        <div class="evidence-caption">Focused participant sharing personal perspectives in our campus user interview.</div>
                     </div>
                     <!-- 证据3 -->
                     <div class="evidence-item">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=user%20testing%20mobile%20app&image_size=portrait_4_3" alt="User Testing" class="evidence-img">
-                        <div class="evidence-caption">Waiting </div>
+                        <img src="Evidence of Life/Life3.jpg" alt="Interview 3" class="evidence-img">
+                        <div class="evidence-caption">Conversation gradually unfolded, from reserve to relaxed genuine communication.</div>
                     </div>
                     <!-- 证据4 -->
                     <div class="evidence-item">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=team%20brainstorming%20session&image_size=portrait_4_3" alt="Brainstorming" class="evidence-img">
-                        <div class="evidence-caption">Waiting </div>
+                        <img src="Evidence of Life/Life4.jpg" alt="Interview 4" class="evidence-img">
+                        <div class="evidence-caption">Engaged in in-depth discussion, expressing unique views on our research topics.</div>
                     </div>
                     <!-- 证据5 -->
                     <div class="evidence-item">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=prototype%20demonstration&image_size=portrait_4_3" alt="Prototype Demo" class="evidence-img">
-                        <div class="evidence-caption">Waiting </div>
+                        <img src="Evidence of Life/Life5.jpg" alt="Interview 5" class="evidence-img">
+                        <div class="evidence-caption">A warm moment of sincere sharing and attentive listening in peer dialogue.</div>
                     </div>
                 </div>
             </div>
@@ -2223,18 +2228,18 @@
                 <div class="high-fi-grid">
                     <!-- 截图1 -->
                     <div class="high-fi-card">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20home%20screen&image_size=portrait_16_9" alt="Home Screen" class="high-fi-img">
-                        <p>Waiting</p>
+                        <img src="High-Fi/High-fi1.jpg" alt="WanderX Campus Map" class="high-fi-img">
+                        <p>WanderX Campus Map</p>
                     </div>
                     <!-- 截图2 -->
                     <div class="high-fi-card">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20AR%20view&image_size=portrait_16_9" alt="AR View" class="high-fi-img">
-                        <p>Waiting</p>
+                        <img src="High-Fi/High-fi7.jpg" alt="AR Scan" class="high-fi-img">
+                        <p>AR Scan</p>
                     </div>
                     <!-- 截图3 -->
                     <div class="high-fi-card">
-                        <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=high%20fidelity%20mobile%20app%20interface%20for%20campus%20navigation%20map%20view&image_size=portrait_16_9" alt="Map View" class="high-fi-img">
-                        <p>Waiting</p>
+                        <img src="High-Fi/High-fi8.jpg" alt="AR Navigation" class="high-fi-img">
+                        <p>AR Navigation</p>
                     </div>
                 </div>
                 <a href="https://wanderx-map.vercel.app/" class="live-btn" target="_blank">🔗 Access System (Live URL)</a>
@@ -2252,31 +2257,31 @@
                     </tr>
                     <tr>
                         <td>Xun Gong</td>
-                        <td>◉ Frontend </td>
+                        <td>◉ System Frontend </td>
                         <td>✅ Figma and Crazy Eights</td>
-                        <td>✅ Poster View ◉ Questionnaire Advice + Portfolio</td>
-                        <td>◉ Assisted Questionnaire Collection</td>
+                        <td>✅ Poster View ✅ Video ◉ Questionnaire Advice + Portfolio</td>
+                        <td>✅ Interview ◉ Assisted Questionnaire Collection</td> 
                     </tr>
                     <tr>
                         <td>Xilai Bu</td>
                         <td> </td>
                         <td>◉ UI Advice </td>
-                        <td>✅ Questionnaire + Portfolio ◉ Poster advice</td>
+                        <td>✅ Questionnaire + Portfolio ◉ Video ◉ Poster advice</td>
                         <td>✅ Questionnaire Collection</td>
                     </tr>
                     <tr>
                         <td>Yaxin Huang</td>
                         <td>✅ System</td>
                         <td> </td>
-                        <td>✅ User Journey Map + System Design and text</td>
+                        <td>✅ User Journey Map + System Design and text ◉ Video</td>
                         <td>◉ Assisted Questionnaire Collection</td>
                     </tr>
                     <tr>
                         <td>Erzhe Xu</td>
                         <td> </td>
                         <td> </td>
-                        <td>✅ Poster text + Questionnaire Design</td>
-                        <td>◉ Assisted Questionnaire Collection </td>
+                        <td>✅ Poster text + Questionnaire Design ◉ Video</td>
+                        <td>✅ Interview ◉ Assisted Questionnaire Collection</td> 
                     </tr>
                 </table>
                 <p><strong>Legend:</strong> ✅ Primary Responsibility &nbsp;&nbsp; ◉ Assisted &nbsp;&nbsp; Blank = Not Involved</p>
@@ -2296,21 +2301,33 @@
                 <div class="quote-container">
                     <!-- 引用1 -->
                     <div class="quote-card">
-                        <p class="quote-text">"Waiting"</p>
-                        <p class="quote-author">Waiting</p>
-                        <p class="quote-rating">Waiting</p>
+                        <p class="quote-text">"The interface design is simple and elegant, with clear attraction guides and route planning. The AR live-view navigation experience is excellent. You can explore independently without having to ask for directions – both the interactive experience and visual appeal are exceptionally well done."</p>
+                        <p class="quote-author">External Visitor</p>
+                        <p class="quote-rating">⭐⭐⭐⭐⭐</p>
                     </div>
                     <!-- 引用2 -->
                     <div class="quote-card">
-                        <p class="quote-text">"Waiting"</p>
-                        <p class="quote-author">Waiting</p>
-                        <p class="quote-rating">Waiting</p>
+                        <p class="quote-text">"I've long been familiar with the usual campus routes, but this product opened up a whole new dimension of exploration. AR building recognition, scene check-ins, and a fun points system bring freshness to the daily campus routine. The visual design is clean and comfortable, with well-structured functions that balance practicality and user experience."</p>
+                        <p class="quote-author">Junior Student</p>
+                        <p class="quote-rating">⭐⭐⭐⭐</p>
                     </div>
                     <!-- 引用3 -->
                     <div class="quote-card">
-                        <p class="quote-text">"Waiting"</p>
-                        <p class="quote-author">Waiting</p>
-                        <p class="quote-rating">Waiting</p>
+                        <p class="quote-text">"The overall campus navigation and map planning are very thoughtful and great for new students finding their way. However, the page information feels a bit cluttered, and some buttons aren't laid out intuitively – at first glance, it's not easy for beginners to find what they need. The interface layout could be further optimized."</p>
+                        <p class="quote-author">First-Year Student</p>
+                        <p class="quote-rating">⭐⭐⭐⭐</p>
+                    </div>
+                    <!-- 引用4 -->
+                    <div class="quote-card">
+                        <p class="quote-text">"In the early days on campus, it's easy to get lost. This campus navigation product, with its lightweight interface, intuitive map layout, and AR live navigation, helps ease freshmen's sense of unfamiliarity in a new environment. The interaction logic is simple and clear, with well-defined functions, making it beginner-friendly and a practical tool for integrating into campus life."</p>
+                        <p class="quote-author">First-Year Student</p>
+                        <p class="quote-rating">⭐⭐⭐⭐</p>
+                    </div>
+                    <!-- 引用5 -->
+                    <div class="quote-card">
+                        <p class="quote-text">"It's very reassuring for touring the campus and following routes – the navigation guidance is clear and easy to follow. However, the information on some niche venues is not detailed enough, lacking supporting pictures and text, which makes it less friendly for visitors who want an in-depth tour."</p>
+                        <p class="quote-author">External Visitor</p>
+                        <p class="quote-rating">⭐⭐⭐</p>
                     </div>
                 </div>
             </div>
@@ -2318,37 +2335,37 @@
             <div class="iterative-refinement">
                 <h3>Iterative Refinement</h3>
                 <div class="refinement-grid">
-                    <!-- 对比1 -->
+                    <!-- 对比1：Navigation Interface Information Hierarchy Optimization -->
                     <div class="refinement-item">
-                        <h4>Navigation Interface Improvement</h4>
+                        <h4>Navigation Interface Information Hierarchy Optimization</h4>
                         <div class="before-after">
                             <div class="ba-item">
                                 <h5>Before</h5>
-                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=old%20navigation%20interface%20with%20cluttered%20design&image_size=portrait_16_9" alt="Before" class="ba-img">
+                                <img src="High-Fi/High-fi6-before.jpg" alt="Before" class="ba-img">
                             </div>
                             <div class="ba-item">
                                 <h5>After</h5>
-                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=new%20navigation%20interface%20with%20clean%20design&image_size=portrait_16_9" alt="After" class="ba-img">
+                                <img src="High-Fi/High-fi6-after.jpg" alt="After" class="ba-img">
                             </div>
                         </div>
-                        <p><strong>User Feedback:</strong> Waiting</p>
-                        <p><strong>Improvement Description:</strong> Waiting</p>
+                        <p><strong>User Feedback:</strong> "The campus navigation and map planning are thoughtful and perfect for new students learning their way around. That said, the UI feels cluttered at times, and some buttons aren't intuitively placed, and new users might struggle to find what they're looking for at first glance. The layout could use some refinement."</p>
+                        <p><strong>Improvement Description:</strong> The 2D navigation screen is the improved iteration here. It streamlines the interface with a clean, focused layout: the top shows step-by-step directions, the map displays the route clearly, and only two core buttons (End Navigation / Switch to AR Nav) are at the bottom. This decluttered, prioritized design cuts through noise, making navigation far more intuitive for first-time users.</p>
                     </div>
-                    <!-- 对比2 -->
+                    <!-- 对比2：Deep Exploration Support Optimization -->
                     <div class="refinement-item">
-                        <h4>AR Positioning Accuracy Improvement</h4>
+                        <h4>Deep Exploration Support Optimization</h4>
                         <div class="before-after">
                             <div class="ba-item">
                                 <h5>Before</h5>
-                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=old%20AR%20navigation%20with%20inaccurate%20positioning&image_size=portrait_16_9" alt="Before" class="ba-img">
+                                <img src="High-Fi/High-fi3-before.jpg" alt="Before" class="ba-img">
                             </div>
                             <div class="ba-item">
                                 <h5>After</h5>
-                                <img src="https://trae-api-cn.mchost.guru/api/ide/v1/text_to_image?prompt=new%20AR%20navigation%20with%20accurate%20positioning&image_size=portrait_16_9" alt="After" class="ba-img">
+                                <img src="High-Fi/High-fi3-after.jpg" alt="After" class="ba-img">
                             </div>
                         </div>
-                        <p><strong>User Feedback:</strong> "Waiting"</p>
-                        <p><strong>Improvement Description:</strong> Waiting</p>
+                        <p><strong>User Feedback:</strong> "The app is great for campus tours—following the routes is a breeze, and the navigation instructions are clear and easy to follow. However, some lesser-known venues lack detailed descriptions and supporting visuals, which isn't ideal for visitors wanting to explore in depth."</p>
+                        <p><strong>Improvement Description:</strong> The Visitor Routes interface directly solves this pain point. It introduces curated tours like the Campus Highlights Tour, with clear details on duration, distance, stops, and even a one-tap "Start Tour" button. This structured, guided experience eliminates the "lack of context" issue, making it effortless for visitors to follow pre-planned routes and explore the campus.</p>
                     </div>
                 </div>
             </div>
